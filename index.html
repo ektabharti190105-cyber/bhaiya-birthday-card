@@ -2,15 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Happy Birthday Bhaiya 🤎</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 html,body{
   width:100%;
@@ -20,329 +16,235 @@ html,body{
 
 body{
   font-family:Georgia,serif;
-  background:#3b2118;
-  color:#fff8ef;
+  background:#321b13;
+  color:#fff7ed;
 }
 
 .screen{
   position:fixed;
   inset:0;
-  width:100%;
-  height:100%;
   display:none;
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  background:
-    radial-gradient(circle at center,#704633 0%,#3b2118 75%);
+  background:radial-gradient(circle,#704634,#321b13 80%);
 }
 
-.screen.active{
-  display:flex;
-}
+.screen.active{display:flex}
 
-/* ---------- PETALS ---------- */
-
+/* PETALS */
 .petal{
   position:fixed;
   top:-30px;
-  font-size:20px;
+  z-index:30;
   pointer-events:none;
-  z-index:20;
   animation:fall linear forwards;
 }
 
 @keyframes fall{
-  0%{
-    transform:translateY(-30px) rotate(0deg);
-    opacity:0;
-  }
-  10%{opacity:1;}
-  100%{
-    transform:translateY(110vh) translateX(80px) rotate(360deg);
+  to{
+    transform:translateY(110vh) rotate(360deg);
     opacity:0;
   }
 }
 
-/* ---------- OPEN PAGE ---------- */
-
-.openBox{
-  text-align:center;
-  padding:25px;
-}
+/* OPEN */
+.openBox{text-align:center;padding:25px}
 
 .heart{
   font-size:100px;
-  animation:heartbeat 1.2s infinite;
-  filter:drop-shadow(0 0 18px #f7c9a8);
+  animation:beat 1.2s infinite;
 }
 
-@keyframes heartbeat{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.13);}
+@keyframes beat{
+  50%{transform:scale(1.15)}
 }
 
 .openBox h1{
   font-size:clamp(28px,6vw,50px);
-  margin:15px 0 25px;
+  margin:18px 0 25px;
 }
 
 button{
   border:0;
-  padding:14px 28px;
-  margin:7px;
   border-radius:30px;
-  font-size:18px;
-  cursor:pointer;
-  font-weight:bold;
+  padding:13px 28px;
+  margin:7px;
+  background:#f4d2b5;
   color:#4b281d;
-  background:#f6d8bd;
-  box-shadow:0 6px 20px #1d0e09;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 7px 20px #170b07;
 }
 
-button:hover{
-  transform:scale(1.05);
-}
+button:hover{transform:scale(1.05)}
 
-/* ---------- NO PAGE ---------- */
+/* NO */
+.noBox{text-align:center}
+.noBox .cry{font-size:100px}
+.noBox h2{font-size:30px;margin:20px}
 
-.noBox{
-  text-align:center;
-}
-
-.noBox .cry{
-  font-size:100px;
-}
-
-.noBox h2{
-  font-size:30px;
-  margin:20px;
-}
-
-/* ---------- HERO ---------- */
-
-.hero{
-  text-align:center;
-  position:relative;
-  z-index:2;
-}
+/* HERO */
+.hero{text-align:center}
 
 .heroCats{
   font-size:65px;
-  letter-spacing:30px;
-  animation:bounce 1.5s infinite alternate;
+  letter-spacing:20px;
+  animation:bounce 1.4s infinite alternate;
 }
 
 @keyframes bounce{
-  from{transform:translateY(0);}
-  to{transform:translateY(-12px);}
+  to{transform:translateY(-12px)}
 }
 
 .hero h1{
-  font-size:clamp(35px,8vw,80px);
+  font-size:clamp(35px,8vw,75px);
   line-height:1.1;
   margin:25px 10px;
-  text-shadow:0 0 20px #f7c9a8;
-  animation:pop 1.2s ease;
+  text-shadow:0 0 20px #f4c6a5;
+  animation:popIn 1.2s ease;
 }
 
-.hero p{
-  font-size:22px;
+.hero p{font-size:21px}
+
+@keyframes popIn{
+  from{transform:scale(.5);opacity:0}
+  to{transform:scale(1);opacity:1}
 }
 
-@keyframes pop{
-  0%{transform:scale(.5);opacity:0;}
-  100%{transform:scale(1);opacity:1;}
-}
-
-/* ---------- PHOTO ---------- */
-
-.photoScreen{
-  background:
-    radial-gradient(circle at center,#6d4331 0%,#2c1711 100%);
-}
-
-.photoWrap{
-  width:min(82vw,850px);
-  height:min(76vh,700px);
+/* PHOTO AREA */
+.photoArea{
+  width:92vw;
+  height:88vh;
   position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
+  gap:25px;
   perspective:1200px;
 }
 
-.film{
+.photoCard{
   position:relative;
-  width:100%;
-  height:100%;
-  padding:38px 45px;
-  background:#17100d;
-  border:5px solid #b98b67;
-  box-shadow:
-    0 0 0 8px #291712,
-    0 20px 60px rgba(0,0,0,.8);
+  width:min(43vw,520px);
+  height:min(72vh,650px);
+  padding:15px;
+  background:#ead2bc;
+  border:7px solid #21100b;
+  box-shadow:0 20px 55px #130805;
   overflow:hidden;
-
-  animation:filmEnter 1.3s ease both;
 }
 
-/* sprocket holes */
-.film::before,
-.film::after{
-  content:"";
-  position:absolute;
-  left:8px;
-  right:8px;
-  height:18px;
-  background:
-    repeating-linear-gradient(
-      to right,
-      #d7b89d 0px,
-      #d7b89d 15px,
-      transparent 15px,
-      transparent 30px
-    );
-  opacity:.7;
-}
-
-.film::before{top:8px;}
-.film::after{bottom:8px;}
-
-.photo{
+.photoCard img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
   display:block;
-  border:4px solid #ead2bb;
-  background:#160d09;
-
-  animation:
-    photoZoom 10s ease-in-out both,
-    photoFloat 10s ease-in-out both;
 }
 
-@keyframes filmEnter{
-  0%{
-    opacity:0;
-    transform:translateX(100%) rotate(8deg) scale(.7);
-  }
-  60%{
-    opacity:1;
-    transform:translateX(-15px) rotate(-2deg) scale(1.02);
-  }
-  100%{
-    opacity:1;
-    transform:translateX(0) rotate(0deg) scale(1);
-  }
+.photoCard.single{
+  width:min(68vw,700px);
+  height:min(76vh,700px);
 }
 
-/* slow zoom IN then OUT */
-@keyframes photoZoom{
-  0%{
-    transform:scale(.88);
-  }
-  45%{
-    transform:scale(1.06);
-  }
-  75%{
-    transform:scale(1.09);
-  }
-  100%{
-    transform:scale(.94);
-  }
+.photoCard.single img{
+  object-fit:contain;
+  background:#160b08;
 }
 
-@keyframes photoFloat{
-  0%,100%{filter:brightness(.92);}
-  50%{filter:brightness(1.08);}
+/* different animations */
+.anim1{
+  animation:slideZoom 5s ease-in-out both;
 }
 
-/* note */
+.anim2{
+  animation:floatZoom 5s ease-in-out both;
+}
 
+.anim3{
+  animation:rotateZoom 5s ease-in-out both;
+}
+
+@keyframes slideZoom{
+  0%{opacity:0;transform:translateX(-100px) rotate(-5deg) scale(.82)}
+  18%{opacity:1}
+  55%{transform:translateX(0) rotate(1deg) scale(1.04)}
+  100%{transform:translateX(20px) rotate(-1deg) scale(.97)}
+}
+
+@keyframes floatZoom{
+  0%{opacity:0;transform:translateY(70px) scale(.82)}
+  20%{opacity:1}
+  55%{transform:translateY(-5px) scale(1.05)}
+  100%{transform:translateY(10px) scale(.97)}
+}
+
+@keyframes rotateZoom{
+  0%{opacity:0;transform:rotate(7deg) scale(.8)}
+  20%{opacity:1}
+  55%{transform:rotate(-2deg) scale(1.06)}
+  100%{transform:rotate(2deg) scale(.97)}
+}
+
+/* PHOTO NOTE */
 .photoNote{
   position:absolute;
-  bottom:24px;
+  bottom:20px;
   left:50%;
   transform:translateX(-50%);
-  z-index:5;
-  width:85%;
-  text-align:center;
-  padding:10px 18px;
+  width:88%;
+  padding:9px 15px;
   border-radius:25px;
-  background:rgba(45,22,14,.82);
-  border:1px solid rgba(255,220,190,.6);
-  color:#fff5e9;
-  font-size:clamp(15px,2.2vw,22px);
-  text-shadow:0 1px 5px #000;
-  animation:noteAppear 1.5s ease both;
-}
-
-@keyframes noteAppear{
-  from{
-    opacity:0;
-    transform:translateX(-50%) translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-  }
-}
-
-/* ---------- CAKE ---------- */
-
-.cakeBox{
+  background:rgba(47,22,14,.86);
+  border:1px solid #f1d1b5;
   text-align:center;
+  font-family:Arial,sans-serif;
+  font-size:clamp(14px,2vw,20px);
+  z-index:5;
+  animation:note 1s ease;
 }
+
+@keyframes note{
+  from{opacity:0;transform:translateX(-50%) translateY(20px)}
+  to{opacity:1;transform:translateX(-50%) translateY(0)}
+}
+
+/* CAKE */
+.cakeBox{text-align:center}
 
 .cakeBox h1{
   font-size:clamp(30px,6vw,60px);
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 
 .cake{
   font-size:150px;
-  animation:cakeBounce 1.5s infinite alternate;
+  animation:cake 1.4s infinite alternate;
 }
 
-@keyframes cakeBounce{
-  from{transform:scale(1);}
-  to{transform:scale(1.08) rotate(-2deg);}
+@keyframes cake{
+  to{transform:scale(1.08) rotate(-2deg)}
 }
 
 .cakeBox p{
-  font-size:23px;
-  margin-top:20px;
+  font-size:22px;
+  margin:18px;
 }
 
-/* ---------- LETTER ---------- */
-
-.letterScreen{
-  padding:20px;
-}
+/* LETTER */
+.letterScreen{padding:20px}
 
 .letter{
   width:min(850px,92vw);
-  max-height:90vh;
+  max-height:88vh;
   overflow:hidden;
   background:#f4dfc9;
-  color:#4a281c;
-  border-radius:25px;
-  padding:clamp(20px,4vw,45px);
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  color:#49271b;
   border:5px solid #b78967;
-  animation:letterIn 1.5s ease;
-}
-
-@keyframes letterIn{
-  from{
-    opacity:0;
-    transform:scale(.8) rotate(-2deg);
-  }
-  to{
-    opacity:1;
-    transform:scale(1) rotate(0);
-  }
+  border-radius:25px;
+  padding:clamp(20px,4vw,42px);
+  box-shadow:0 20px 60px #150906;
 }
 
 .letter h1{
@@ -353,58 +255,45 @@ button:hover{
 
 .letter p{
   font-family:Arial,sans-serif;
-  font-size:clamp(14px,2vw,19px);
-  line-height:1.55;
+  font-size:clamp(13px,1.8vw,18px);
+  line-height:1.48;
 }
 
-/* ---------- FINAL ---------- */
-
-.finalBox{
-  text-align:center;
-}
+/* FINAL */
+.finalBox{text-align:center}
 
 .finalBox img{
   max-width:75vw;
   max-height:65vh;
-  border:7px solid #ead2bb;
-  box-shadow:0 15px 50px #160b08;
-  animation:finalZoom 6s ease-in-out infinite alternate;
-}
-
-@keyframes finalZoom{
-  from{transform:scale(.96);}
-  to{transform:scale(1.03);}
+  border:7px solid #ead2bc;
+  box-shadow:0 20px 55px #130805;
 }
 
 .finalBox h2{
-  margin-top:18px;
-  font-size:clamp(18px,4vw,30px);
+  margin-top:15px;
+  font-size:clamp(17px,4vw,29px);
 }
 
-/* mobile */
-
 @media(max-width:600px){
-  .film{
-    padding:28px 25px;
+  .photoArea{gap:8px}
+  .photoCard{
+    width:45vw;
+    height:67vh;
+    padding:8px;
+    border-width:4px;
   }
-
-  .photoWrap{
-    width:92vw;
-    height:72vh;
+  .photoCard.single{
+    width:82vw;
+    height:70vh;
   }
-
-  .heroCats{
-    font-size:45px;
-    letter-spacing:10px;
-  }
-
-  .letter{
-    padding:18px;
-  }
-
-  .letter p{
+  .photoNote{
+    bottom:12px;
+    padding:7px 10px;
     font-size:13px;
-    line-height:1.42;
+  }
+  .letter p{
+    font-size:12.5px;
+    line-height:1.4;
   }
 }
 </style>
@@ -436,26 +325,24 @@ button:hover{
   <div class="hero">
     <div class="heroCats">🐱 🎉 🐱</div>
     <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA 🎂🤎</h1>
-    <p>My annoying but favourite brother 🥹😂</p>
+    <p>My favourite annoying elder brother 😂🤎</p>
   </div>
 </section>
-
-<!-- PHOTOS GENERATED HERE -->
 
 <!-- CAKE -->
 <section id="cake" class="screen">
   <div class="cakeBox">
-    <h1>Make a wish! ✨</h1>
+    <h1>Make a Wish ✨</h1>
     <div class="cake">🎂</div>
-    <p>Close your eyes... and make your birthday wish! 🤎</p>
-    <p>3... 2... 1... 🕯️✨</p>
+    <p>Close your eyes and make your birthday wish 🕯️✨</p>
+    <button onclick="goTo('letter')">NEXT 💌</button>
   </div>
 </section>
 
 <!-- LETTER -->
 <section id="letter" class="screen letterScreen">
   <div class="letter">
-    <h1>For My Kuchupuchu 🥹💖</h1>
+    <h1>For My Kuchupuchu 🥹🤎</h1>
 
     <p>
       Heyyy Kuchupuchu! 🥹💖 Wish you a super duper Happy Birthday! 🎂✨🎈
@@ -464,14 +351,12 @@ button:hover{
       I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
       On a serious note, I care for you deeply. 🥺💗 I never want you to face any
       trouble in the future, which is why I want you to focus, study hard 📚✏️,
-      and not waste your precious time hanging around aimlessly in friend circles
-      🙅‍♀️👥.
+      and not waste your precious time hanging around aimlessly in friend circles 🙅‍♀️👥.
       <br><br>
 
       Please understand, when I tell you not to do something, just don't do it! 🛑
       I only say it because I want you to succeed in life 🌟🏆. Right now it might
-      feel like I’m forcing you 😅, but trust me, you will understand why later
-      💭💖.
+      feel like I’m forcing you 😅, but trust me, you will understand why later 💭💖.
       <br><br>
 
       No matter how much we fight 🥊💥, you’ll always be my brother 🫂,
@@ -482,6 +367,10 @@ button:hover{
       <br>
       Your Billu ✨🐾
     </p>
+
+    <div style="text-align:center;margin-top:12px">
+      <button onclick="goTo('final')">NEXT 🤎</button>
+    </div>
   </div>
 </section>
 
@@ -490,7 +379,7 @@ button:hover{
   <div class="finalBox">
     <img src="image 20.jpg" alt="Final memory">
     <h2>Apne mera phone kho diya… yeh nahi bhulungi mai kabhi 😭📱😂</h2>
-    <p style="margin-top:10px;font-size:20px;">byy, take care 🤎</p>
+    <p style="margin-top:10px;font-size:20px">byy, take care 🤎</p>
   </div>
 </section>
 
@@ -498,94 +387,86 @@ button:hover{
 
 <script>
 
-/* =========================
-   PHOTO LIST
-========================= */
-
-const photos = [
-  "image1.jpg",
-  "image2.jpg",
-  "image3.jpg",
-  "image4.jpg",
-  "image5.jpg",
-  "image6.jpg",
-  "image7.jpg",
-  "image8.jpg",
-  "image9.jpg",
-  "image10.jpg",
-  "image11.jpg",
-  "image12.jpg",
-  "image13.jpg",
-  "image14.jpg",
-  "image15.jpg",
-  "image16.jpg",
-  "image17.jpg",
-  "image18.jpg",
-  "image19.jpg",
-  "image 20.jpg"
+const photos=[
+"image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg",
+"image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg",
+"image11.jpg","image12.jpg","image13.jpg","image14.jpg","image15.jpg",
+"image16.jpg","image17.jpg","image18.jpg","image19.jpg","image 20.jpg"
 ];
 
-/* short notes for each photo */
-
-const notes = [
-  "My forever partner in crime 🤎😂",
-  "Life is better with you around 🥹✨",
-  "One of my favourite memories with you 💕",
-  "Brother by blood, bestie by choice 🫂",
-  "Look at this cutie 😂🤎",
-  "Those memories >>> everything 🥹",
-  "Can't believe you're growing up so fast 😭",
-  "Always annoying, always loved 😂❤️",
-  "A little memory I will always keep 💫",
-  "My favourite headache 😭😂",
-  "We really have too many memories together 🤎",
-  "No matter what, I've got your back 🫶",
-  "This smile deserves a whole birthday 🎂",
-  "Some moments are just priceless ✨",
-  "Forever grateful for this bond 🥹🤎",
-  "From fights to laughter — everything together 😂",
-  "You will always be my little brother 🫂",
-  "Another memory for our collection 📸✨",
-  "Growing up but still my bhaiya 🤎",
-  "And here we are... another year older 😂🎂"
+const notes=[
+"3 years apart, but still stuck with each other 😂🤎",
+"My annoying elder brother, always there when I need you 🫂",
+"Some memories are just too precious 🥹",
+"Growing up with you gave me the funniest memories 😂",
+"Still the same bhaiya, just a little older now 😭😂",
+"Fights, laughter and everything in between 🤎",
+"You annoy me, but I wouldn't trade you for anyone 😂",
+"One memory I'll always keep close 🥹✨",
+"My built-in protector since forever 🫂",
+"Okay fine... sometimes you're actually nice 😂",
+"Brother-sister chaos at its finest 🤎",
+"Always wishing the best for you 🌟",
+"Another memory with my favourite elder brother 📸",
+"No matter how much we fight, you're still my bhaiya 🫶",
+"Growing up together is something I'll always treasure 🥹",
+"From childhood memories to today 🤎",
+"You'll always have your Billu cheering for you 📣",
+"Some bonds don't need many words 🫂",
+"Another year, another collection of memories 🎂",
+"Happy Birthday to my one and only bhaiya 🤎🎉"
 ];
 
-/* =========================
-   CREATE PHOTO SCREENS
-========================= */
+/* CREATE PHOTO PAGES */
 
-const body = document.body;
+photos.forEach((src,i)=>{
 
-photos.forEach((photo,index)=>{
+  const section=document.createElement("section");
+  section.id="photo"+i;
+  section.className="screen";
 
-  const section = document.createElement("section");
+  /*
+     Every 3rd photo gets a two-photo layout.
+     The second image is the next photo.
+  */
 
-  section.id = "photo" + (index+1);
-  section.className = "screen photoScreen";
+  if(i%3===0 && i<photos.length-1){
 
-  section.innerHTML = `
-    <div class="photoWrap">
-      <div class="film">
-        <img class="photo"
-             src="${photo}"
-             alt="Memory ${index+1}">
-        <div class="photoNote">${notes[index]}</div>
+    section.innerHTML=`
+      <div class="photoArea">
+
+        <div class="photoCard">
+          <img class="anim1" src="${src}">
+          <div class="photoNote">${notes[i]}</div>
+        </div>
+
+        <div class="photoCard">
+          <img class="anim2" src="${photos[i+1]}">
+        </div>
+
       </div>
-    </div>
-  `;
+    `;
 
-  body.insertBefore(
-    section,
-    document.getElementById("cake")
-  );
+  }else{
+
+    section.innerHTML=`
+      <div class="photoArea">
+
+        <div class="photoCard single">
+          <img class="anim${(i%3)+1}" src="${src}">
+          <div class="photoNote">${notes[i]}</div>
+        </div>
+
+      </div>
+    `;
+  }
+
+  document.body.insertBefore(section,document.getElementById("cake"));
 });
 
-/* =========================
-   SCREEN CONTROL
-========================= */
+/* SCREEN */
 
-let currentScreen = null;
-let timer = null;
+let timer=null;
 
 function goTo(id){
 
@@ -595,30 +476,24 @@ function goTo(id){
     s.classList.remove("active");
   });
 
-  const target = document.getElementById(id);
-
-  if(target){
-    target.classList.add("active");
-    currentScreen = id;
-  }
+  document.getElementById(id).classList.add("active");
 
   startPetals();
 }
 
-/* =========================
-   OPEN CARD
-========================= */
+/* OPEN */
 
 function openCard(){
 
-  const music = document.getElementById("music");
+  const music=document.getElementById("music");
 
-  music.currentTime = 0;
+  music.currentTime=0;
+
   music.play().catch(()=>{});
 
   goTo("hero");
 
-  timer = setTimeout(()=>{
+  timer=setTimeout(()=>{
     startPhotos();
   },4000);
 }
@@ -627,71 +502,92 @@ function showNo(){
   goTo("no");
 }
 
-/* =========================
-   AUTOMATIC PHOTOS
-   EXACTLY 10 SEC EACH
-========================= */
+/* POP SOUND — GENERATED IN BROWSER */
 
-function startPhotos(){
+let audioCtx=null;
 
-  showPhoto(1);
+function popSound(){
+
+  if(!audioCtx){
+    audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  }
+
+  const osc=audioCtx.createOscillator();
+  const gain=audioCtx.createGain();
+
+  osc.type="sine";
+
+  osc.frequency.setValueAtTime(180,audioCtx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(
+    700,
+    audioCtx.currentTime+0.07
+  );
+
+  gain.gain.setValueAtTime(
+    0.0001,
+    audioCtx.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.18,
+    audioCtx.currentTime+0.01
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    audioCtx.currentTime+0.13
+  );
+
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  osc.start();
+  osc.stop(audioCtx.currentTime+0.14);
 }
 
-function showPhoto(number){
+/* PHOTOS */
+
+function startPhotos(){
+  showPhoto(0);
+}
+
+function showPhoto(i){
 
   clearTimeout(timer);
 
-  goTo("photo"+number);
+  goTo("photo"+i);
 
-  /* force animation restart */
+  /* pop transition sound */
+  popSound();
 
-  const photo = document.querySelector(
-    "#photo"+number+" .photo"
-  );
+  /*
+    Each photo page stays 5 seconds.
+    Some pages contain 2 photos.
+  */
 
-  const film = document.querySelector(
-    "#photo"+number+" .film"
-  );
+  timer=setTimeout(()=>{
 
-  if(photo){
-    photo.style.animation="none";
-    void photo.offsetWidth;
-    photo.style.animation=
-      "photoZoom 10s ease-in-out both, photoFloat 10s ease-in-out both";
-  }
+    if(i<photos.length-1){
 
-  if(film){
-    film.style.animation="none";
-    void film.offsetWidth;
-    film.style.animation="filmEnter 1.3s ease both";
-  }
+      /*
+        When a page already showed photo i+1,
+        skip it so it doesn't repeat.
+      */
 
-  /* NEXT PHOTO AFTER EXACTLY 10 SECONDS */
+      if(i%3===0 && i+1<photos.length){
+        showPhoto(i+2);
+      }else{
+        showPhoto(i+1);
+      }
 
-  timer = setTimeout(()=>{
-
-    if(number < photos.length){
-      showPhoto(number+1);
     }else{
       goTo("cake");
-
-      timer = setTimeout(()=>{
-        goTo("letter");
-
-        timer = setTimeout(()=>{
-          goTo("final");
-        },15000);
-
-      },7000);
-
     }
 
-  },10000);
+  },5000);
 }
 
-/* =========================
-   FALLING PETALS
-========================= */
+/* PETALS */
 
 let petalTimer;
 
@@ -699,33 +595,29 @@ function startPetals(){
 
   clearInterval(petalTimer);
 
-  petalTimer = setInterval(()=>{
+  petalTimer=setInterval(()=>{
 
-    const petal = document.createElement("div");
+    const p=document.createElement("div");
 
-    petal.className="petal";
+    p.className="petal";
 
-    const flowers=["🌹","🌸","🌷","✨","🤎"];
+    const items=["🌹","🌸","🌷","✨","🤎"];
 
-    petal.innerText =
-      flowers[Math.floor(Math.random()*flowers.length)];
+    p.innerText=items[
+      Math.floor(Math.random()*items.length)
+    ];
 
-    petal.style.left =
-      Math.random()*100+"vw";
+    p.style.left=Math.random()*100+"vw";
+    p.style.fontSize=(12+Math.random()*14)+"px";
+    p.style.animationDuration=(5+Math.random()*4)+"s";
 
-    petal.style.fontSize =
-      (12+Math.random()*15)+"px";
-
-    petal.style.animationDuration =
-      (5+Math.random()*5)+"s";
-
-    document.body.appendChild(petal);
+    document.body.appendChild(p);
 
     setTimeout(()=>{
-      petal.remove();
-    },10000);
+      p.remove();
+    },9000);
 
-  },450);
+  },500);
 }
 
 startPetals();

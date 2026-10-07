@@ -3,922 +3,732 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Bhaiya ❤️</title>
+<title>Happy Birthday Bhaiya 🤎</title>
 
 <style>
-
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden !important;
-    background:#3b241b;
-    font-family:Georgia,serif;
+  width:100%;
+  height:100%;
+  overflow:hidden;
 }
 
-/* ================= GENERAL SCREEN ================= */
+body{
+  font-family:Georgia,serif;
+  background:#3b2118;
+  color:#fff8ef;
+}
 
 .screen{
-    position:fixed;
-    inset:0;
-    width:100vw;
-    height:100vh;
-    min-height:100vh;
-
-    display:none;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    background:
-      radial-gradient(circle at center,#8b5a3c,#3b241b 75%);
-
-    color:#fff5e6;
-
-    overflow:hidden !important;
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at center,#704633 0%,#3b2118 75%);
 }
 
 .screen.active{
-    display:flex;
-    animation:screenIn .7s ease;
+  display:flex;
 }
 
-@keyframes screenIn{
-    from{
-        opacity:0;
-        transform:scale(1.04);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-/* ================= PETALS ================= */
+/* ---------- PETALS ---------- */
 
 .petal{
-    position:fixed;
-    top:-40px;
-    z-index:1;
-    pointer-events:none;
-    animation:fall linear infinite;
+  position:fixed;
+  top:-30px;
+  font-size:20px;
+  pointer-events:none;
+  z-index:20;
+  animation:fall linear forwards;
 }
 
 @keyframes fall{
-    0%{
-        transform:translateY(-50px) rotate(0deg);
-        opacity:0;
-    }
-
-    10%{
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:0;
-    }
+  0%{
+    transform:translateY(-30px) rotate(0deg);
+    opacity:0;
+  }
+  10%{opacity:1;}
+  100%{
+    transform:translateY(110vh) translateX(80px) rotate(360deg);
+    opacity:0;
+  }
 }
 
-/* ================= OPEN PAGE ================= */
+/* ---------- OPEN PAGE ---------- */
 
-.open-title{
-    font-size:clamp(30px,7vw,60px);
-    margin-bottom:30px;
-    text-align:center;
+.openBox{
+  text-align:center;
+  padding:25px;
 }
 
 .heart{
-    font-size:110px;
-    cursor:pointer;
-    animation:heartbeat 1.2s infinite;
+  font-size:100px;
+  animation:heartbeat 1.2s infinite;
+  filter:drop-shadow(0 0 18px #f7c9a8);
 }
 
 @keyframes heartbeat{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.15)}
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.13);}
 }
 
-.open-buttons{
-    margin-top:25px;
-    display:flex;
-    gap:20px;
+.openBox h1{
+  font-size:clamp(28px,6vw,50px);
+  margin:15px 0 25px;
 }
 
 button{
-    border:none;
-    cursor:pointer;
-    font-family:inherit;
+  border:0;
+  padding:14px 28px;
+  margin:7px;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+  font-weight:bold;
+  color:#4b281d;
+  background:#f6d8bd;
+  box-shadow:0 6px 20px #1d0e09;
 }
 
-.open-btn{
-    padding:13px 30px;
-    border-radius:30px;
-    background:#f4d6b4;
-    color:#4a2c20;
-    font-size:18px;
-    font-weight:bold;
+button:hover{
+  transform:scale(1.05);
 }
 
-.no-btn{
-    padding:13px 30px;
-    border-radius:30px;
-    background:#6e4432;
-    color:white;
-    font-size:18px;
+/* ---------- NO PAGE ---------- */
+
+.noBox{
+  text-align:center;
 }
 
-/* ================= HERO ================= */
+.noBox .cry{
+  font-size:100px;
+}
+
+.noBox h2{
+  font-size:30px;
+  margin:20px;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.heroCats{
+  font-size:65px;
+  letter-spacing:30px;
+  animation:bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce{
+  from{transform:translateY(0);}
+  to{transform:translateY(-12px);}
+}
 
 .hero h1{
-    font-size:clamp(30px,7vw,75px);
-    text-align:center;
-    animation:bounceTitle 1.5s infinite;
-    z-index:3;
+  font-size:clamp(35px,8vw,80px);
+  line-height:1.1;
+  margin:25px 10px;
+  text-shadow:0 0 20px #f7c9a8;
+  animation:pop 1.2s ease;
 }
 
-@keyframes bounceTitle{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
+.hero p{
+  font-size:22px;
 }
-
-.cats{
-    font-size:80px;
-    margin-bottom:20px;
-    animation:catPop 1s ease;
-}
-
-@keyframes catPop{
-    from{
-        transform:scale(0);
-    }
-    to{
-        transform:scale(1);
-    }
-}
-
-.popper{
-    position:absolute;
-    font-size:45px;
-    animation:pop 1.5s infinite alternate;
-}
-
-.pop1{left:10%;top:30%}
-.pop2{right:10%;top:30%}
 
 @keyframes pop{
-    from{transform:rotate(-12deg) scale(1)}
-    to{transform:rotate(12deg) scale(1.2)}
+  0%{transform:scale(.5);opacity:0;}
+  100%{transform:scale(1);opacity:1;}
 }
 
-.next{
-    position:absolute;
-    bottom:25px;
-    padding:12px 28px;
-    border-radius:25px;
-    background:#f4d6b4;
-    color:#4a2c20;
-    font-weight:bold;
-    font-size:16px;
-    z-index:20;
+/* ---------- PHOTO ---------- */
+
+.photoScreen{
+  background:
+    radial-gradient(circle at center,#6d4331 0%,#2c1711 100%);
 }
 
-/* ================= PHOTO FILM ================= */
-
-.photo-screen{
-    background:
-      linear-gradient(rgba(45,25,18,.88),rgba(45,25,18,.88)),
-      #3b241b;
+.photoWrap{
+  width:min(82vw,850px);
+  height:min(76vh,700px);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  perspective:1200px;
 }
-
-/* film strip */
 
 .film{
-    position:relative;
+  position:relative;
+  width:100%;
+  height:100%;
+  padding:38px 45px;
+  background:#17100d;
+  border:5px solid #b98b67;
+  box-shadow:
+    0 0 0 8px #291712,
+    0 20px 60px rgba(0,0,0,.8);
+  overflow:hidden;
 
-    width:min(86vw,620px);
-    height:min(76vh,620px);
-
-    padding:38px 32px;
-
-    background:#17110e;
-
-    border:8px solid #090706;
-
-    box-shadow:
-      0 0 0 3px #76513c,
-      0 25px 60px rgba(0,0,0,.55);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    animation:filmEnter .9s cubic-bezier(.2,.8,.2,1);
+  animation:filmEnter 1.3s ease both;
 }
 
-/* top and bottom film holes */
-
+/* sprocket holes */
 .film::before,
 .film::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    height:24px;
-
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 12px,
-        #e8d2b8 12px 28px,
-        transparent 28px 40px
-      );
-
-    opacity:.9;
+  content:"";
+  position:absolute;
+  left:8px;
+  right:8px;
+  height:18px;
+  background:
+    repeating-linear-gradient(
+      to right,
+      #d7b89d 0px,
+      #d7b89d 15px,
+      transparent 15px,
+      transparent 30px
+    );
+  opacity:.7;
 }
 
-.film::before{
-    top:5px;
-}
+.film::before{top:8px;}
+.film::after{bottom:8px;}
 
-.film::after{
-    bottom:5px;
+.photo{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  border:4px solid #ead2bb;
+  background:#160d09;
+
+  animation:
+    photoZoom 10s ease-in-out both,
+    photoFloat 10s ease-in-out both;
 }
 
 @keyframes filmEnter{
-
-    0%{
-        opacity:0;
-        transform:
-          translateX(100vw)
-          rotate(8deg)
-          scale(.75);
-    }
-
-    60%{
-        transform:
-          translateX(-25px)
-          rotate(-2deg)
-          scale(1.03);
-    }
-
-    100%{
-        opacity:1;
-        transform:
-          translateX(0)
-          rotate(0)
-          scale(1);
-    }
+  0%{
+    opacity:0;
+    transform:translateX(100%) rotate(8deg) scale(.7);
+  }
+  60%{
+    opacity:1;
+    transform:translateX(-15px) rotate(-2deg) scale(1.02);
+  }
+  100%{
+    opacity:1;
+    transform:translateX(0) rotate(0deg) scale(1);
+  }
 }
 
-/* actual photo */
-
-.photo{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    background:#f3dfc8;
-
-    padding:10px;
-
-    border:4px solid #f8ead9;
-
-    box-shadow:
-      0 0 25px rgba(255,220,180,.25);
-
-    animation:
-      photoZoom 5s ease-in-out infinite alternate,
-      photoFloat 3s ease-in-out infinite;
-}
-
+/* slow zoom IN then OUT */
 @keyframes photoZoom{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.045);
-    }
+  0%{
+    transform:scale(.88);
+  }
+  45%{
+    transform:scale(1.06);
+  }
+  75%{
+    transform:scale(1.09);
+  }
+  100%{
+    transform:scale(.94);
+  }
 }
 
 @keyframes photoFloat{
-    0%,100%{
-        filter:brightness(1);
-    }
-    50%{
-        filter:brightness(1.08);
-    }
+  0%,100%{filter:brightness(.92);}
+  50%{filter:brightness(1.08);}
 }
 
-/* little film label */
+/* note */
 
-.film-label{
-    position:absolute;
-    bottom:-45px;
-    left:50%;
-    transform:translateX(-50%);
-
-    font-size:14px;
-    letter-spacing:3px;
-    color:#e7c7a8;
+.photoNote{
+  position:absolute;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  width:85%;
+  text-align:center;
+  padding:10px 18px;
+  border-radius:25px;
+  background:rgba(45,22,14,.82);
+  border:1px solid rgba(255,220,190,.6);
+  color:#fff5e9;
+  font-size:clamp(15px,2.2vw,22px);
+  text-shadow:0 1px 5px #000;
+  animation:noteAppear 1.5s ease both;
 }
 
-/* ================= MISSING PHOTO ================= */
-
-.missing{
-    color:#5b3728;
-    background:#f1d8bd;
-
-    width:100%;
-    height:100%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-    font-size:22px;
-    padding:20px;
+@keyframes noteAppear{
+  from{
+    opacity:0;
+    transform:translateX(-50%) translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
 }
 
-/* ================= VIDEO ================= */
+/* ---------- CAKE ---------- */
 
-.video-film{
-    width:min(88vw,850px);
-    height:min(68vh,520px);
-
-    background:#17110e;
-
-    border:10px solid #090706;
-
-    padding:25px;
-
-    position:relative;
-
-    box-shadow:
-      0 0 0 3px #76513c,
-      0 25px 60px rgba(0,0,0,.6);
-
-    animation:filmEnter .9s ease;
+.cakeBox{
+  text-align:center;
 }
 
-.video-film::before,
-.video-film::after{
-    content:"";
-
-    position:absolute;
-    left:0;
-    right:0;
-
-    height:20px;
-
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 10px,
-        #e8d2b8 10px 25px,
-        transparent 25px 35px
-      );
-}
-
-.video-film::before{top:3px}
-.video-film::after{bottom:3px}
-
-video{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    background:#080605;
-}
-
-/* ================= CAKE ================= */
-
-.cake-title{
-    font-size:clamp(30px,6vw,60px);
-    margin-bottom:20px;
+.cakeBox h1{
+  font-size:clamp(30px,6vw,60px);
+  margin-bottom:25px;
 }
 
 .cake{
-    font-size:150px;
-    animation:cakeBounce 1.4s infinite alternate;
+  font-size:150px;
+  animation:cakeBounce 1.5s infinite alternate;
 }
 
 @keyframes cakeBounce{
-    from{transform:scale(1)}
-    to{transform:scale(1.08)}
+  from{transform:scale(1);}
+  to{transform:scale(1.08) rotate(-2deg);}
 }
 
-.wish{
-    font-size:20px;
-    margin:15px 0;
+.cakeBox p{
+  font-size:23px;
+  margin-top:20px;
 }
 
-/* ================= LETTER ================= */
+/* ---------- LETTER ---------- */
 
-.letter-screen{
-    padding:25px;
+.letterScreen{
+  padding:20px;
 }
 
 .letter{
-    width:min(88vw,800px);
-
-    max-height:78vh;
-
-    padding:clamp(20px,4vw,40px);
-
-    background:#f3dfc8;
-
-    color:#4b2d20;
-
-    border:8px solid #6e4432;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
-
-    border-radius:8px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-    overflow:hidden !important;
-
-    animation:letterOpen 1s ease;
+  width:min(850px,92vw);
+  max-height:90vh;
+  overflow:hidden;
+  background:#f4dfc9;
+  color:#4a281c;
+  border-radius:25px;
+  padding:clamp(20px,4vw,45px);
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  border:5px solid #b78967;
+  animation:letterIn 1.5s ease;
 }
 
-@keyframes letterOpen{
-    from{
-        opacity:0;
-        transform:scale(.85) rotate(-2deg);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1) rotate(0);
-    }
+@keyframes letterIn{
+  from{
+    opacity:0;
+    transform:scale(.8) rotate(-2deg);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) rotate(0);
+  }
 }
 
-.letter h2{
-    text-align:center;
-    margin-bottom:12px;
-    font-size:clamp(22px,4vw,34px);
+.letter h1{
+  text-align:center;
+  font-size:clamp(25px,5vw,42px);
+  margin-bottom:20px;
 }
 
 .letter p{
-    font-size:clamp(12px,1.8vw,17px);
-    line-height:1.45;
-    margin-bottom:9px;
+  font-family:Arial,sans-serif;
+  font-size:clamp(14px,2vw,19px);
+  line-height:1.55;
 }
 
-.signature{
-    text-align:right;
-    font-weight:bold;
-    margin-top:8px;
+/* ---------- FINAL ---------- */
+
+.finalBox{
+  text-align:center;
 }
 
-/* ================= FINAL ================= */
-
-.final-photo{
-    width:min(80vw,500px);
-    max-height:65vh;
-
-    object-fit:contain;
-
-    border:10px solid #f3dfc8;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.6);
-
-    animation:finalZoom 2s ease;
+.finalBox img{
+  max-width:75vw;
+  max-height:65vh;
+  border:7px solid #ead2bb;
+  box-shadow:0 15px 50px #160b08;
+  animation:finalZoom 6s ease-in-out infinite alternate;
 }
 
 @keyframes finalZoom{
-    from{
-        transform:scale(.6) rotate(-5deg);
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1) rotate(0);
-        opacity:1;
-    }
+  from{transform:scale(.96);}
+  to{transform:scale(1.03);}
 }
 
-.final-text{
-    margin-top:20px;
-    font-size:clamp(18px,4vw,30px);
-    text-align:center;
-    max-width:800px;
+.finalBox h2{
+  margin-top:18px;
+  font-size:clamp(18px,4vw,30px);
 }
 
-/* ================= MOBILE ================= */
+/* mobile */
 
 @media(max-width:600px){
+  .film{
+    padding:28px 25px;
+  }
 
-    .film{
-        width:88vw;
-        height:68vh;
-        padding:30px 22px;
-    }
+  .photoWrap{
+    width:92vw;
+    height:72vh;
+  }
 
-    .photo{
-        padding:6px;
-        border-width:3px;
-    }
+  .heroCats{
+    font-size:45px;
+    letter-spacing:10px;
+  }
 
-    .cats{
-        font-size:60px;
-    }
+  .letter{
+    padding:18px;
+  }
 
-    .hero h1{
-        padding:0 20px;
-    }
-
-    .letter{
-        max-height:78vh;
-        padding:18px;
-    }
-
-    .letter p{
-        font-size:12px;
-        line-height:1.32;
-        margin-bottom:6px;
-    }
-
-    .letter h2{
-        font-size:22px;
-    }
-
-    .cake{
-        font-size:110px;
-    }
-
+  .letter p{
+    font-size:13px;
+    line-height:1.42;
+  }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- PETALS -->
-<script>
-for(let i=0;i<25;i++){
-
-    const petal=document.createElement("div");
-
-    petal.className="petal";
-    petal.innerHTML=["🌹","🌸","💗","✨"][Math.floor(Math.random()*4)];
-
-    petal.style.left=Math.random()*100+"%";
-    petal.style.animationDuration=(4+Math.random()*6)+"s";
-    petal.style.animationDelay=Math.random()*5+"s";
-    petal.style.fontSize=(14+Math.random()*18)+"px";
-
-    document.body.appendChild(petal);
-}
-</script>
-
-
 <!-- OPEN -->
-
-<section class="screen active" id="open">
-
-    <div class="open-title">
-        A little surprise for you 🥹❤️
-    </div>
-
-    <div class="heart">❤️</div>
-
-    <div class="open-buttons">
-
-        <button class="open-btn" onclick="goTo('hero')">
-            OPEN 💌
-        </button>
-
-        <button class="no-btn" onclick="noOpen()">
-            NO 😭
-        </button>
-
-    </div>
-
+<section id="open" class="screen active">
+  <div class="openBox">
+    <div class="heart">🤎</div>
+    <h1>Something special for you...</h1>
+    <button onclick="openCard()">OPEN 💌</button>
+    <button onclick="showNo()">NO 🙈</button>
+  </div>
 </section>
-
 
 <!-- NO -->
-
-<section class="screen" id="no">
-
-    <div style="font-size:130px">😭</div>
-
-    <h1>Really?! 😭</h1>
-
-    <button class="next" onclick="goTo('open')">
-        Okay okay... 😭❤️
-    </button>
-
+<section id="no" class="screen">
+  <div class="noBox">
+    <div class="cry">😭</div>
+    <h2>Areyyy open karo naaa 🥺</h2>
+    <button onclick="goTo('open')">Okay okay 😂</button>
+  </div>
 </section>
-
 
 <!-- HERO -->
-
-<section class="screen hero" id="hero">
-
-    <div class="cats">
-        🐱 🎉 🐱
-    </div>
-
-    <div class="popper pop1">🎊</div>
-    <div class="popper pop2">🎉</div>
-
-    <h1>
-        HAPPY BIRTHDAY<br>
-        BHAIYAAAAA 🎂❤️
-    </h1>
-
-    <button class="next" onclick="startMusic();goTo('photo1')">
-        LET'S GO 🎬
-    </button>
-
+<section id="hero" class="screen">
+  <div class="hero">
+    <div class="heroCats">🐱 🎉 🐱</div>
+    <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA 🎂🤎</h1>
+    <p>My annoying but favourite brother 🥹😂</p>
+  </div>
 </section>
 
+<!-- PHOTOS GENERATED HERE -->
 
-<!-- AUDIO -->
+<!-- CAKE -->
+<section id="cake" class="screen">
+  <div class="cakeBox">
+    <h1>Make a wish! ✨</h1>
+    <div class="cake">🎂</div>
+    <p>Close your eyes... and make your birthday wish! 🤎</p>
+    <p>3... 2... 1... 🕯️✨</p>
+  </div>
+</section>
 
-<audio id="song" loop>
-    <source src="song.jpg.mp3" type="audio/mpeg">
-</audio>
+<!-- LETTER -->
+<section id="letter" class="screen letterScreen">
+  <div class="letter">
+    <h1>For My Kuchupuchu 🥹💖</h1>
 
+    <p>
+      Heyyy Kuchupuchu! 🥹💖 Wish you a super duper Happy Birthday! 🎂✨🎈
+      <br><br>
+
+      I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
+      On a serious note, I care for you deeply. 🥺💗 I never want you to face any
+      trouble in the future, which is why I want you to focus, study hard 📚✏️,
+      and not waste your precious time hanging around aimlessly in friend circles
+      🙅‍♀️👥.
+      <br><br>
+
+      Please understand, when I tell you not to do something, just don't do it! 🛑
+      I only say it because I want you to succeed in life 🌟🏆. Right now it might
+      feel like I’m forcing you 😅, but trust me, you will understand why later
+      💭💖.
+      <br><br>
+
+      No matter how much we fight 🥊💥, you’ll always be my brother 🫂,
+      and I’ll always have your back 💕. Have an amazing day! 🎉🥳
+      <br><br>
+
+      Love you so much, 🥰
+      <br>
+      Your Billu ✨🐾
+    </p>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="final" class="screen">
+  <div class="finalBox">
+    <img src="image 20.jpg" alt="Final memory">
+    <h2>Apne mera phone kho diya… yeh nahi bhulungi mai kabhi 😭📱😂</h2>
+    <p style="margin-top:10px;font-size:20px;">byy, take care 🤎</p>
+  </div>
+</section>
+
+<audio id="music" src="song.jpg.mp3" preload="auto"></audio>
 
 <script>
+
+/* =========================
+   PHOTO LIST
+========================= */
 
 const photos = [
-    "image1.jpg",
-    "image2.jpg",
-    "image3.jpg",
-    "image4.jpg",
-    "image5.jpg",
-    "image6.jpg",
-    "image7.jpg",
-    "image8.jpg",
-    "image9.jpg",
-    "image10.jpg",
-    "image11.jpg",
-    "image12.jpg",
-    "image13.jpg",
-    "image14.jpg",
-    "image15.jpg",
-    "image16.jpg",
-    "image17.jpg",
-    "image18.jpg",
-    "image19.jpg",
-    "image 20.jpg"
+  "image1.jpg",
+  "image2.jpg",
+  "image3.jpg",
+  "image4.jpg",
+  "image5.jpg",
+  "image6.jpg",
+  "image7.jpg",
+  "image8.jpg",
+  "image9.jpg",
+  "image10.jpg",
+  "image11.jpg",
+  "image12.jpg",
+  "image13.jpg",
+  "image14.jpg",
+  "image15.jpg",
+  "image16.jpg",
+  "image17.jpg",
+  "image18.jpg",
+  "image19.jpg",
+  "image 20.jpg"
 ];
 
-</script>
+/* short notes for each photo */
 
+const notes = [
+  "My forever partner in crime 🤎😂",
+  "Life is better with you around 🥹✨",
+  "One of my favourite memories with you 💕",
+  "Brother by blood, bestie by choice 🫂",
+  "Look at this cutie 😂🤎",
+  "Those memories >>> everything 🥹",
+  "Can't believe you're growing up so fast 😭",
+  "Always annoying, always loved 😂❤️",
+  "A little memory I will always keep 💫",
+  "My favourite headache 😭😂",
+  "We really have too many memories together 🤎",
+  "No matter what, I've got your back 🫶",
+  "This smile deserves a whole birthday 🎂",
+  "Some moments are just priceless ✨",
+  "Forever grateful for this bond 🥹🤎",
+  "From fights to laughter — everything together 😂",
+  "You will always be my little brother 🫂",
+  "Another memory for our collection 📸✨",
+  "Growing up but still my bhaiya 🤎",
+  "And here we are... another year older 😂🎂"
+];
 
-<!-- PHOTO SCREENS -->
+/* =========================
+   CREATE PHOTO SCREENS
+========================= */
 
-<script>
+const body = document.body;
 
 photos.forEach((photo,index)=>{
 
-    const section=document.createElement("section");
+  const section = document.createElement("section");
 
-    section.className="screen photo-screen";
-    section.id="photo"+(index+1);
+  section.id = "photo" + (index+1);
+  section.className = "screen photoScreen";
 
-    const number=String(index+1).padStart(2,"0");
+  section.innerHTML = `
+    <div class="photoWrap">
+      <div class="film">
+        <img class="photo"
+             src="${photo}"
+             alt="Memory ${index+1}">
+        <div class="photoNote">${notes[index]}</div>
+      </div>
+    </div>
+  `;
 
-    section.innerHTML=`
-
-        <div class="film">
-
-            <img
-                class="photo"
-                src="${photo}"
-                alt="Birthday memory ${number}"
-                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-            >
-
-            <div class="missing" style="display:none">
-                📸<br><br>
-                This photo is missing.<br>
-                Please upload <b>${photo}</b>
-            </div>
-
-            <div class="film-label">
-                MEMORY • ${number}
-            </div>
-
-        </div>
-
-        <button class="next"
-        onclick="goTo('${index===photos.length-1 ? "video1" : "photo"+(index+2)}')">
-            NEXT ❤️
-        </button>
-
-    `;
-
-    document.body.appendChild(section);
-
+  body.insertBefore(
+    section,
+    document.getElementById("cake")
+  );
 });
 
-</script>
+/* =========================
+   SCREEN CONTROL
+========================= */
 
-
-<!-- VIDEO 1 -->
-
-<section class="screen" id="video1">
-
-    <div class="video-film">
-
-        <video controls playsinline>
-            <source src="clip1.mp4" type="video/mp4">
-        </video>
-
-    </div>
-
-    <button class="next" onclick="goTo('video2')">
-        NEXT 🎬
-    </button>
-
-</section>
-
-
-<!-- VIDEO 2 -->
-
-<section class="screen" id="video2">
-
-    <div class="video-film">
-
-        <video controls playsinline>
-            <source src="clip2.mp4" type="video/mp4">
-        </video>
-
-    </div>
-
-    <button class="next" onclick="goTo('cake')">
-        NEXT ❤️
-    </button>
-
-</section>
-
-
-<!-- CAKE -->
-
-<section class="screen" id="cake">
-
-    <h1 class="cake-title">
-        Make a Wish ✨
-    </h1>
-
-    <div class="cake">
-        🎂
-    </div>
-
-    <div class="wish">
-        Close your eyes & make a wish! 🥹❤️
-    </div>
-
-    <button class="next" onclick="goTo('letter')">
-        Cut the Cake 🎂
-    </button>
-
-</section>
-
-
-<!-- LETTER -->
-
-<section class="screen letter-screen" id="letter">
-
-    <div class="letter">
-
-        <h2>
-            Heyyy Kuchupuchu! 🥹💖
-        </h2>
-
-        <p>
-            Wish you a super duper Happy Birthday! 🎂✨🎈
-        </p>
-
-        <p>
-            I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
-            On a serious note, I care for you deeply. 🥺💗
-            I never want you to face any trouble in the future, which is why I want you to focus,
-            study hard 📚✏️, and not waste your precious time hanging around aimlessly in friend circles 🙅‍♀️👥.
-        </p>
-
-        <p>
-            Please understand, when I tell you not to do something, just don't do it! 🛑
-            I only say it because I want you to succeed in life 🌟🏆.
-            Right now it might feel like I’m forcing you 😅, but trust me,
-            you will understand why later 💭💖.
-        </p>
-
-        <p>
-            No matter how much we fight 🥊💥, you’ll always be my brother 🫂,
-            and I’ll always have your back 💕.
-            Have an amazing day! 🎉🥳
-        </p>
-
-        <p>
-            Love you so much, 🥰
-        </p>
-
-        <div class="signature">
-            Your Billu ✨🐾
-        </div>
-
-    </div>
-
-    <button class="next" onclick="goTo('final')">
-        One last thing 😂
-    </button>
-
-</section>
-
-
-<!-- FINAL -->
-
-<section class="screen" id="final">
-
-    <img
-        src="image 20.jpg"
-        class="final-photo"
-        alt="Final memory"
-    >
-
-    <div class="final-text">
-        Apne mera phone kho diya… yeh nahi bhulungi mai kabhi 😭📱😂
-        <br><br>
-        byy take care ❤️
-    </div>
-
-</section>
-
-
-<script>
-
-/* ================= NAVIGATION ================= */
+let currentScreen = null;
+let timer = null;
 
 function goTo(id){
 
-    document.querySelectorAll(".screen").forEach(screen=>{
-        screen.classList.remove("active");
-    });
+  clearTimeout(timer);
 
-    const target=document.getElementById(id);
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.remove("active");
+  });
 
-    if(target){
-        target.classList.add("active");
-    }
+  const target = document.getElementById(id);
 
-    /* Restart animation every time */
+  if(target){
+    target.classList.add("active");
+    currentScreen = id;
+  }
 
-    const film=target?.querySelector(".film");
-
-    if(film){
-        film.style.animation="none";
-
-        void film.offsetWidth;
-
-        film.style.animation=
-        "filmEnter .9s cubic-bezier(.2,.8,.2,1)";
-    }
-
-    const video=target?.querySelector("video");
-
-    if(video){
-        video.currentTime=0;
-    }
-
+  startPetals();
 }
 
+/* =========================
+   OPEN CARD
+========================= */
 
-/* ================= NO BUTTON ================= */
+function openCard(){
 
-function noOpen(){
-    goTo("no");
+  const music = document.getElementById("music");
+
+  music.currentTime = 0;
+  music.play().catch(()=>{});
+
+  goTo("hero");
+
+  timer = setTimeout(()=>{
+    startPhotos();
+  },4000);
 }
 
-
-/* ================= MUSIC ================= */
-
-function startMusic(){
-
-    const song=document.getElementById("song");
-
-    song.volume=.7;
-
-    song.play().catch(()=>{});
-
+function showNo(){
+  goTo("no");
 }
+
+/* =========================
+   AUTOMATIC PHOTOS
+   EXACTLY 10 SEC EACH
+========================= */
+
+function startPhotos(){
+
+  showPhoto(1);
+}
+
+function showPhoto(number){
+
+  clearTimeout(timer);
+
+  goTo("photo"+number);
+
+  /* force animation restart */
+
+  const photo = document.querySelector(
+    "#photo"+number+" .photo"
+  );
+
+  const film = document.querySelector(
+    "#photo"+number+" .film"
+  );
+
+  if(photo){
+    photo.style.animation="none";
+    void photo.offsetWidth;
+    photo.style.animation=
+      "photoZoom 10s ease-in-out both, photoFloat 10s ease-in-out both";
+  }
+
+  if(film){
+    film.style.animation="none";
+    void film.offsetWidth;
+    film.style.animation="filmEnter 1.3s ease both";
+  }
+
+  /* NEXT PHOTO AFTER EXACTLY 10 SECONDS */
+
+  timer = setTimeout(()=>{
+
+    if(number < photos.length){
+      showPhoto(number+1);
+    }else{
+      goTo("cake");
+
+      timer = setTimeout(()=>{
+        goTo("letter");
+
+        timer = setTimeout(()=>{
+          goTo("final");
+        },15000);
+
+      },7000);
+
+    }
+
+  },10000);
+}
+
+/* =========================
+   FALLING PETALS
+========================= */
+
+let petalTimer;
+
+function startPetals(){
+
+  clearInterval(petalTimer);
+
+  petalTimer = setInterval(()=>{
+
+    const petal = document.createElement("div");
+
+    petal.className="petal";
+
+    const flowers=["🌹","🌸","🌷","✨","🤎"];
+
+    petal.innerText =
+      flowers[Math.floor(Math.random()*flowers.length)];
+
+    petal.style.left =
+      Math.random()*100+"vw";
+
+    petal.style.fontSize =
+      (12+Math.random()*15)+"px";
+
+    petal.style.animationDuration =
+      (5+Math.random()*5)+"s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(()=>{
+      petal.remove();
+    },10000);
+
+  },450);
+}
+
+startPetals();
 
 </script>
 

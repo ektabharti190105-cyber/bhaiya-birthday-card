@@ -6,140 +6,98 @@
 <title>Happy Birthday Bhaiya 🤎</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  font-family: Georgia, serif;
+  font-family:Georgia,serif;
   background:#3b241b;
-  color:#fff7ed;
+  color:#fff3e8;
   overflow-x:hidden;
 }
 
-/* ---------- OPENING ---------- */
+button{font-family:inherit}
 
+/* OPENING */
 #opening{
   min-height:100vh;
-  background:linear-gradient(135deg,#2b1710,#5a3526,#3b241b);
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  position:relative;
-  overflow:hidden;
+  background:linear-gradient(135deg,#2a1710,#5a3828,#3b241b);
 }
 
-.open-card{
-  position:relative;
-  z-index:5;
-}
+.openbox{padding:30px}
 
 .heart{
   font-size:110px;
-  animation:heartbeat 1.4s infinite;
-  filter:drop-shadow(0 8px 15px #1d0d08);
+  animation:beat 1.3s infinite;
 }
 
-@keyframes heartbeat{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.12)}
+@keyframes beat{
+  50%{transform:scale(1.15)}
 }
 
-.open-card h1{
-  font-size:32px;
-  margin:10px 0 25px;
+.openbox h1{
+  font-size:30px;
+  margin:15px 0 10px;
 }
 
-.open-btn{
-  border:none;
-  padding:14px 35px;
+.openbox p{
+  font-size:20px;
+  margin-bottom:25px;
+}
+
+.btn{
+  border:0;
   border-radius:30px;
-  background:#f1c7a9;
-  color:#3b241b;
+  padding:14px 30px;
+  margin:5px;
   font-size:18px;
   font-weight:bold;
   cursor:pointer;
-  box-shadow:0 5px 20px #1c0d08;
 }
 
-.no-btn{
-  border:none;
-  padding:10px 22px;
-  border-radius:25px;
-  background:#704b3a;
+.open{
+  background:#f3c9a9;
+  color:#3b241b;
+}
+
+.no{
+  background:#6b4939;
   color:white;
-  margin-left:10px;
-  cursor:pointer;
 }
 
 #cry{
   display:none;
   font-size:100px;
-  margin-top:20px;
-  animation:shake .5s infinite alternate;
+  margin-top:25px;
 }
 
-@keyframes shake{
-  from{transform:rotate(-7deg)}
-  to{transform:rotate(7deg)}
-}
-
-/* ---------- MAIN ---------- */
-
-#main{
-  display:none;
-  min-height:100vh;
-  background:#3b241b;
-}
+/* MAIN */
+#main{display:none}
 
 .hero{
   min-height:100vh;
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
+  position:relative;
   overflow:hidden;
-  padding:30px;
+  background:linear-gradient(135deg,#3b241b,#674333,#3b241b);
 }
 
 .hero h1{
-  font-size:clamp(40px,8vw,85px);
-  line-height:1.05;
-  color:#ffe5cf;
-  text-shadow:0 5px 20px #1d0d08;
-  animation:zoom 2s ease;
+  font-size:clamp(42px,8vw,85px);
+  color:#ffe1cb;
+  text-shadow:0 8px 20px #1c0d08;
+  animation:zoom 1.8s ease;
 }
 
 .hero p{
+  font-size:23px;
   margin-top:20px;
-  font-size:20px;
-}
-
-.cat{
-  position:absolute;
-  font-size:85px;
-  bottom:60px;
-}
-
-.cat.left{left:25px}
-.cat.right{right:25px}
-
-.pop{
-  position:absolute;
-  font-size:50px;
-  animation:pop 2s infinite;
-}
-
-.p1{left:8%;top:20%}
-.p2{right:8%;top:25%}
-
-@keyframes pop{
-  0%,100%{transform:scale(.8)}
-  50%{transform:scale(1.2)}
 }
 
 @keyframes zoom{
@@ -147,12 +105,33 @@ body{
   to{transform:scale(1);opacity:1}
 }
 
-/* ---------- PETALS / EMOJIS ---------- */
+.cat{
+  position:absolute;
+  font-size:75px;
+  bottom:50px;
+}
 
-.falling{
+.left{left:25px}
+.right{right:25px}
+
+.popper{
+  position:absolute;
+  font-size:55px;
+  animation:pop 1.5s infinite alternate;
+}
+
+.p1{left:10%;top:20%}
+.p2{right:10%;top:25%}
+
+@keyframes pop{
+  to{transform:scale(1.25) rotate(8deg)}
+}
+
+/* FALLING */
+.fall{
   position:fixed;
-  top:-50px;
-  z-index:20;
+  top:-40px;
+  z-index:50;
   pointer-events:none;
   animation:fall linear forwards;
 }
@@ -163,27 +142,29 @@ body{
   }
 }
 
-/* ---------- SECTIONS ---------- */
-
+/* SECTIONS */
 .section{
   padding:80px 20px;
   text-align:center;
   background:#4a2c20;
 }
 
+.section:nth-child(even){
+  background:#3b241b;
+}
+
 .section h2{
+  color:#ffe1cb;
   font-size:42px;
-  color:#ffe2cc;
-  margin-bottom:40px;
+  margin-bottom:20px;
 }
 
 .subtitle{
   font-size:18px;
-  margin-bottom:35px;
+  margin-bottom:40px;
 }
 
-/* ---------- POLAROIDS ---------- */
-
+/* GALLERY */
 .gallery{
   max-width:1100px;
   margin:auto;
@@ -193,23 +174,25 @@ body{
 }
 
 .polaroid{
-  background:#fff8ef;
-  padding:10px 10px 35px;
-  box-shadow:0 10px 25px #24140e;
-  color:#4b2b20;
-  transform:rotate(var(--rotate));
+  background:#fff7ed;
+  color:#4a2c20;
+  padding:10px 10px 28px;
+  box-shadow:0 12px 25px #21120c;
   transition:.5s;
-  animation:photoIn 1s ease both;
+  animation:appear 1s ease both;
 }
 
+.polaroid:nth-child(odd){transform:rotate(-3deg)}
+.polaroid:nth-child(even){transform:rotate(3deg)}
+
 .polaroid:hover{
-  transform:rotate(0deg) scale(1.06);
+  transform:scale(1.07) rotate(0);
   z-index:3;
 }
 
 .polaroid img{
   width:100%;
-  aspect-ratio:1/1.15;
+  aspect-ratio:1/1.12;
   object-fit:cover;
   display:block;
 }
@@ -219,145 +202,122 @@ body{
   font-size:16px;
 }
 
-@keyframes photoIn{
-  from{
-    opacity:0;
-    transform:scale(.6) rotate(0deg);
-  }
-  to{
-    opacity:1;
-    transform:rotate(var(--rotate));
-  }
+@keyframes appear{
+  from{opacity:0;transform:scale(.6)}
+  to{opacity:1}
 }
 
-/* ---------- VIDEOS ---------- */
-
-.video-box{
-  max-width:850px;
+/* VIDEOS */
+.film{
+  max-width:800px;
   margin:35px auto;
-  background:#24150f;
+  background:#1d110c;
   padding:18px;
-  border:10px solid #17100d;
-  border-radius:8px;
+  border:8px solid #120b08;
   box-shadow:0 15px 35px #21120c;
-}
-
-.video-box video{
-  width:100%;
-  display:block;
 }
 
 .film-title{
   font-size:22px;
-  margin-bottom:12px;
+  margin-bottom:15px;
 }
 
-/* ---------- CAKE ---------- */
+.film video{
+  width:100%;
+  display:block;
+}
 
+/* CAKE */
 .cake{
   font-size:130px;
-  margin:20px;
-  animation:cakeFloat 2s infinite;
+  margin:30px;
+  animation:float 2s infinite;
 }
 
-@keyframes cakeFloat{
+@keyframes float{
   50%{transform:translateY(-12px)}
 }
 
 .wish{
   font-size:25px;
-  margin:20px;
-  color:#ffe4d0;
+  color:#ffe1cb;
 }
 
-/* ---------- LETTER ---------- */
-
+/* LETTER */
 .letter{
   max-width:800px;
-  margin:auto;
+  margin:40px auto;
+  padding:40px;
   background:#f7e3cf;
   color:#43271c;
-  padding:45px;
-  border-radius:5px;
-  box-shadow:0 15px 35px #24140e;
   text-align:left;
   line-height:1.8;
   font-size:18px;
+  box-shadow:0 15px 35px #21120c;
 }
 
-.letter h2{
-  color:#6b3e2c;
+.letter h3{
   text-align:center;
+  font-size:28px;
   margin-bottom:25px;
+  color:#633b2b;
 }
 
+.letter p{
+  margin-bottom:20px;
+}
+
+/* FINAL */
 .final-photo{
   max-width:500px;
-  margin:45px auto 20px;
-  position:relative;
+  margin:50px auto 20px;
 }
 
 .final-photo img{
   width:100%;
-  border:10px solid #f7e3cf;
+  padding:10px;
+  background:#f7e3cf;
   box-shadow:0 12px 30px #21120c;
 }
 
-.final-message{
-  margin-top:20px;
+.final-text{
   font-size:25px;
   font-weight:bold;
-  color:#ffe4d0;
+  color:#ffe1cb;
+  line-height:1.5;
 }
 
 .footer{
-  padding:50px;
+  padding:50px 20px;
   text-align:center;
+  background:#291710;
   font-size:20px;
-  background:#2b1811;
 }
 
-/* mobile */
-
 @media(max-width:600px){
-  .cat{
-    font-size:55px;
-  }
-
-  .letter{
-    padding:25px;
-    font-size:16px;
-  }
-
-  .section h2{
-    font-size:32px;
-  }
+  .cat{font-size:50px}
+  .section h2{font-size:32px}
+  .letter{padding:25px;font-size:16px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- OPENING -->
+<!-- OPEN PAGE -->
 <section id="opening">
 
-  <div class="open-card">
+  <div class="openbox">
 
     <div class="heart">❤️</div>
 
-    <h1>Someone special has a birthday...</h1>
+    <h1>Something special is waiting...</h1>
 
-    <p style="font-size:22px;margin-bottom:25px;">
-      Will you open this? 🥹
-    </p>
+    <p>Will you open it? 🥹</p>
 
-    <button class="open-btn" onclick="openCard()">
-      OPEN 🤎
-    </button>
+    <button class="btn open" onclick="openCard()">OPEN 🤎</button>
 
-    <button class="no-btn" onclick="cry()">
-      NO 😭
-    </button>
+    <button class="btn no" onclick="showCry()">NO 😭</button>
 
     <div id="cry">😭</div>
 
@@ -366,7 +326,7 @@ body{
 </section>
 
 
-<!-- MAIN SITE -->
+<!-- BIRTHDAY SITE -->
 <div id="main">
 
   <!-- HERO -->
@@ -375,118 +335,48 @@ body{
     <div class="cat left">🐱🎉</div>
     <div class="cat right">🎉🐱</div>
 
-    <div class="pop p1">🎊</div>
-    <div class="pop p2">🎉</div>
+    <div class="popper p1">🎊</div>
+    <div class="popper p2">🎉</div>
 
     <div>
       <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA! 🎂🤎</h1>
-      <p>To my favourite Kuchupuchu 🥹🫶</p>
+      <p>My favourite Kuchupuchu 🥹🫶</p>
     </div>
 
   </section>
 
 
-  <!-- PHOTOS -->
+  <!-- MEMORIES -->
   <section class="section">
 
     <h2>Our Little Memories 📸🤎</h2>
 
     <p class="subtitle">
-      From those little moments to all the memories we have now... 🥹
+      From little childhood moments to all the memories we have today... 🥹
     </p>
 
     <div class="gallery">
 
-      <div class="polaroid" style="--rotate:-3deg">
-        <img src="photo1.jpg">
-        <p>Little birthday boy 🎂</p>
-      </div>
-
-      <div class="polaroid" style="--rotate:3deg">
-        <img src="photo2.jpg">
-        <p>Always my bhaiya 🫂</p>
-      </div>
-
-      <div class="polaroid" style="--rotate:-2deg">
-        <img src="photo3.jpg">
-        <p>My favourite person 🤎</p>
-      </div>
-
-      <div class="polaroid" style="--rotate:4deg">
-        <img src="photo4.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-4deg">
-        <img src="photo5.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:2deg">
-        <img src="photo6.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-3deg">
-        <img src="photo7.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:3deg">
-        <img src="photo8.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-2deg">
-        <img src="photo9.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:4deg">
-        <img src="photo10.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-4deg">
-        <img src="photo11.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:2deg">
-        <img src="photo12.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-3deg">
-        <img src="photo13.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:3deg">
-        <img src="photo14.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-2deg">
-        <img src="photo15.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:4deg">
-        <img src="photo16.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-4deg">
-        <img src="photo17.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:2deg">
-        <img src="photo18.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-3deg">
-        <img src="photo19.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:3deg">
-        <img src="photo20.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:-2deg">
-        <img src="photo21.jpg">
-      </div>
-
-      <div class="polaroid" style="--rotate:4deg">
-        <img src="photo22.jpg">
-      </div>
+      <div class="polaroid"><img src="image1.jpg"><p>Little birthday boy 🎂</p></div>
+      <div class="polaroid"><img src="image2.jpg"><p>My bhaiya 🫂</p></div>
+      <div class="polaroid"><img src="image3.jpg"><p>Always us 🤎</p></div>
+      <div class="polaroid"><img src="image4.jpg"></div>
+      <div class="polaroid"><img src="image5.jpg"></div>
+      <div class="polaroid"><img src="image6.jpg"></div>
+      <div class="polaroid"><img src="image7.jpg"></div>
+      <div class="polaroid"><img src="image8.jpg"></div>
+      <div class="polaroid"><img src="image9.jpg"></div>
+      <div class="polaroid"><img src="image10.jpg"></div>
+      <div class="polaroid"><img src="image11.jpg"></div>
+      <div class="polaroid"><img src="image12.jpg"></div>
+      <div class="polaroid"><img src="image13.jpg"></div>
+      <div class="polaroid"><img src="image14.jpg"></div>
+      <div class="polaroid"><img src="image15.jpg"></div>
+      <div class="polaroid"><img src="image16.jpg"></div>
+      <div class="polaroid"><img src="image17.jpg"></div>
+      <div class="polaroid"><img src="image18.jpg"></div>
+      <div class="polaroid"><img src="image19.jpg"></div>
+      <div class="polaroid"><img src="image 20.jpg"></div>
 
     </div>
 
@@ -494,36 +384,30 @@ body{
 
 
   <!-- VIDEOS -->
-
   <section class="section">
 
     <h2>Our Little Movies 🎞️</h2>
 
-    <div class="video-box">
+    <p class="subtitle">A few more memories... 🥹🤎</p>
 
+    <div class="film">
       <div class="film-title">🎬 Memory No. 1</div>
-
       <video controls>
-        <source src="video1.mp4" type="video/mp4">
+        <source src="clip1.mp4" type="video/mp4">
       </video>
-
     </div>
 
-    <div class="video-box">
-
+    <div class="film">
       <div class="film-title">🎬 Memory No. 2</div>
-
       <video controls>
-        <source src="video2.mp4" type="video/mp4">
+        <source src="clip2.mp4" type="video/mp4">
       </video>
-
     </div>
 
   </section>
 
 
   <!-- CAKE -->
-
   <section class="section">
 
     <h2>Now Make A Wish... ✨</h2>
@@ -534,66 +418,60 @@ body{
       Close your eyes... make your biggest wish... 🌟
     </div>
 
-    <p style="font-size:20px;margin-top:25px;">
-      And now... CUT THE CAKE! 🎂🔪😂
+    <p style="font-size:21px;margin-top:25px">
+      And now... CUT THE CAKE! 🎂🥳
     </p>
 
   </section>
 
 
   <!-- LETTER -->
-
   <section class="section">
 
     <h2>A Little Letter For You 💌</h2>
 
     <div class="letter">
 
-      <h2>Heyyy Kuchupuchu! 🥹💖</h2>
+      <h3>Heyyy Kuchupuchu! 🥹💖</h3>
 
       <p>
         Wish you a super duper Happy Birthday! 🎂✨🎈
       </p>
 
       <p>
-        I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
-        On a serious note, I care for you deeply. 🥺💗
-        I never want you to face any trouble in the future, which is why I want you
-        to focus, study hard 📚✏️, and not waste your precious time hanging around
-        aimlessly in friend circles 🙅‍♀️👥.
+        I know I annoy you a lot 😜, but that's just part of my job as your
+        sister! 💁‍♀️ On a serious note, I care for you deeply. 🥺💗
+        I never want you to face any trouble in the future, which is why I want
+        you to focus, study hard 📚✏️, and not waste your precious time hanging
+        around aimlessly in friend circles 🙅‍♀️👥.
       </p>
 
       <p>
         Please understand, when I tell you not to do something, just don't do it! 🛑
         I only say it because I want you to succeed in life 🌟🏆.
-        Right now it might feel like I’m forcing you 😅, but trust me,
+        Right now it might feel like I'm forcing you 😅, but trust me,
         you will understand why later 💭💖.
       </p>
 
       <p>
-        No matter how much we fight 🥊💥, you’ll always be my brother 🫂,
-        and I’ll always have your back 💕.
+        No matter how much we fight 🥊💥, you'll always be my brother 🫂,
+        and I'll always have your back 💕.
         Have an amazing day! 🎉🥳
       </p>
 
-      <p>
-        Love you so much, 🥰
-      </p>
+      <p>Love you so much, 🥰</p>
 
-      <p>
-        <strong>Your Billu ✨🐾</strong>
-      </p>
+      <p><strong>Your Billu ✨🐾</strong></p>
 
     </div>
 
 
-    <!-- FINAL PHOTO -->
-
+    <!-- LAST PHOTO -->
     <div class="final-photo">
-      <img src="photo22.jpg">
+      <img src="image 20.jpg">
     </div>
 
-    <div class="final-message">
+    <div class="final-text">
       Apne mera phone kho diya...<br>
       yeh nahi bhulungi mai kabhi 😭📱😂
     </div>
@@ -610,8 +488,8 @@ body{
 
 
 <!-- SONG -->
-<audio id="song" loop>
-  <source src="song.mp3" type="audio/mpeg">
+<audio id="song">
+  <source src="song.jpg.mp3" type="audio/mpeg">
 </audio>
 
 
@@ -624,47 +502,56 @@ function openCard(){
 
   const song=document.getElementById("song");
 
-  song.play().catch(()=>{
-    console.log("Song needs browser permission.");
+  song.currentTime=0;
+
+  song.play().catch(function(){
+    alert("Tap anywhere once to start the birthday music 🎵");
   });
 
-  startEffects();
+  startFalling();
+
+  window.scrollTo(0,0);
 }
 
-function cry(){
+
+function showCry(){
 
   document.getElementById("cry").style.display="block";
 
 }
 
-function startEffects(){
 
-  const things=["🌹","🌸","💗","🤎","✨","🎉","🥹","🫶","💕"];
+function startFalling(){
 
-  setInterval(()=>{
+  const emojis=[
+    "🌹","🌸","🌷","💗","🤎","✨",
+    "🎉","🎊","🥹","🫶","💕","🌹"
+  ];
+
+  setInterval(function(){
 
     const item=document.createElement("div");
 
-    item.className="falling";
+    item.className="fall";
 
-    item.innerHTML=
-      things[Math.floor(Math.random()*things.length)];
+    item.innerText=
+      emojis[Math.floor(Math.random()*emojis.length)];
 
     item.style.left=Math.random()*100+"vw";
 
     item.style.fontSize=
-      (15+Math.random()*25)+"px";
+      (16+Math.random()*25)+"px";
 
     item.style.animationDuration=
       (4+Math.random()*5)+"s";
 
     document.body.appendChild(item);
 
-    setTimeout(()=>{
+    setTimeout(function(){
       item.remove();
     },9000);
 
-  },250);
+  },220);
 
 }
 

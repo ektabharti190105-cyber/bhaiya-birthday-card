@@ -2,298 +2,285 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Happy Birthday Bhaiya 🤎</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bhaiya ❤️</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-  font-family:Georgia,serif;
-  background:#321b13;
-  color:#fff7ed;
+  font-family:Arial, sans-serif;
+  background:#3b2119;
+  color:white;
+  overflow:hidden;
 }
 
 .screen{
-  position:fixed;
-  inset:0;
   display:none;
-  align-items:center;
-  justify-content:center;
+  width:100vw;
+  height:100vh;
+  min-height:100vh;
+  text-align:center;
+  position:relative;
   overflow:hidden;
-  background:radial-gradient(circle,#704634,#321b13 80%);
 }
 
-.screen.active{display:flex}
-
-/* PETALS */
-.petal{
-  position:fixed;
-  top:-30px;
-  z-index:30;
-  pointer-events:none;
-  animation:fall linear forwards;
+.screen.active{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-    opacity:0;
-  }
+.open-screen{
+  background:linear-gradient(135deg,#3b2119,#6b3929);
 }
-
-/* OPEN */
-.openBox{text-align:center;padding:25px}
 
 .heart{
-  font-size:100px;
-  animation:beat 1.2s infinite;
+  font-size:90px;
+  animation:heartbeat 1.2s infinite;
 }
 
-@keyframes beat{
-  50%{transform:scale(1.15)}
+@keyframes heartbeat{
+  50%{transform:scale(1.12)}
 }
 
-.openBox h1{
-  font-size:clamp(28px,6vw,50px);
-  margin:18px 0 25px;
+h1{
+  margin:15px;
+  font-size:clamp(28px,7vw,55px);
 }
 
 button{
   border:0;
   border-radius:30px;
   padding:13px 28px;
-  margin:7px;
-  background:#f4d2b5;
-  color:#4b281d;
+  margin:10px;
   font-size:18px;
   font-weight:bold;
   cursor:pointer;
-  box-shadow:0 7px 20px #170b07;
+  background:#fff;
+  color:#5a3025;
 }
 
-button:hover{transform:scale(1.05)}
+button:hover{
+  transform:scale(1.05);
+}
 
-/* NO */
-.noBox{text-align:center}
-.noBox .cry{font-size:100px}
-.noBox h2{font-size:30px;margin:20px}
+.no-message{
+  font-size:25px;
+  margin:20px;
+}
 
-/* HERO */
-.hero{text-align:center}
-
-.heroCats{
+.cat{
+  position:absolute;
+  bottom:30px;
   font-size:65px;
-  letter-spacing:20px;
-  animation:bounce 1.4s infinite alternate;
+  animation:bounce 1s infinite alternate;
 }
+
+.cat.left{left:7%}
+.cat.right{right:7%}
 
 @keyframes bounce{
-  to{transform:translateY(-12px)}
+  to{transform:translateY(-15px)}
+}
+
+.hero{
+  background:linear-gradient(135deg,#6d3c2d,#a7624b);
 }
 
 .hero h1{
-  font-size:clamp(35px,8vw,75px);
-  line-height:1.1;
-  margin:25px 10px;
-  text-shadow:0 0 20px #f4c6a5;
-  animation:popIn 1.2s ease;
+  animation:zoom 1.5s infinite alternate;
 }
 
-.hero p{font-size:21px}
-
-@keyframes popIn{
-  from{transform:scale(.5);opacity:0}
-  to{transform:scale(1);opacity:1}
+@keyframes zoom{
+  to{transform:scale(1.06)}
 }
 
-/* PHOTO AREA */
-.photoArea{
-  width:92vw;
-  height:88vh;
-  position:relative;
+.petal{
+  position:absolute;
+  top:-30px;
+  animation:fall linear forwards;
+  pointer-events:none;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:.2;
+  }
+}
+
+/* PHOTO */
+
+.photo-screen{
+  background:linear-gradient(135deg,#24130f,#6d3d2d);
+  padding:20px;
+}
+
+.photo-title{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.photo-grid{
+  width:min(94vw,900px);
   display:flex;
-  align-items:center;
   justify-content:center;
-  gap:25px;
-  perspective:1200px;
+  align-items:center;
+  gap:15px;
 }
 
-.photoCard{
-  position:relative;
-  width:min(43vw,520px);
-  height:min(72vh,650px);
-  padding:15px;
-  background:#ead2bc;
-  border:7px solid #21100b;
-  box-shadow:0 20px 55px #130805;
-  overflow:hidden;
+.photo-card{
+  width:min(43vw,390px);
+  max-height:72vh;
+  background:white;
+  padding:9px;
+  border-radius:18px;
+  box-shadow:0 10px 35px rgba(0,0,0,.5);
+  animation:photoIn .8s ease;
 }
 
-.photoCard img{
+.photo-card img{
   width:100%;
-  height:100%;
+  height:min(52vh,430px);
   object-fit:cover;
+  border-radius:12px;
   display:block;
 }
 
-.photoCard.single{
-  width:min(68vw,700px);
-  height:min(76vh,700px);
+.note{
+  color:#4b261d;
+  font-size:14px;
+  font-weight:bold;
+  padding:9px 4px 3px;
+  min-height:40px;
 }
 
-.photoCard.single img{
-  object-fit:contain;
-  background:#160b08;
-}
-
-/* different animations */
-.anim1{
-  animation:slideZoom 5s ease-in-out both;
-}
-
-.anim2{
-  animation:floatZoom 5s ease-in-out both;
-}
-
-.anim3{
-  animation:rotateZoom 5s ease-in-out both;
-}
-
-@keyframes slideZoom{
-  0%{opacity:0;transform:translateX(-100px) rotate(-5deg) scale(.82)}
-  18%{opacity:1}
-  55%{transform:translateX(0) rotate(1deg) scale(1.04)}
-  100%{transform:translateX(20px) rotate(-1deg) scale(.97)}
-}
-
-@keyframes floatZoom{
-  0%{opacity:0;transform:translateY(70px) scale(.82)}
-  20%{opacity:1}
-  55%{transform:translateY(-5px) scale(1.05)}
-  100%{transform:translateY(10px) scale(.97)}
-}
-
-@keyframes rotateZoom{
-  0%{opacity:0;transform:rotate(7deg) scale(.8)}
-  20%{opacity:1}
-  55%{transform:rotate(-2deg) scale(1.06)}
-  100%{transform:rotate(2deg) scale(.97)}
-}
-
-/* PHOTO NOTE */
-.photoNote{
-  position:absolute;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  width:88%;
-  padding:9px 15px;
-  border-radius:25px;
-  background:rgba(47,22,14,.86);
-  border:1px solid #f1d1b5;
-  text-align:center;
-  font-family:Arial,sans-serif;
-  font-size:clamp(14px,2vw,20px);
-  z-index:5;
-  animation:note 1s ease;
-}
-
-@keyframes note{
-  from{opacity:0;transform:translateX(-50%) translateY(20px)}
-  to{opacity:1;transform:translateX(-50%) translateY(0)}
+@keyframes photoIn{
+  from{
+    opacity:0;
+    transform:scale(.7) rotate(-5deg);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) rotate(0);
+  }
 }
 
 /* CAKE */
-.cakeBox{text-align:center}
 
-.cakeBox h1{
-  font-size:clamp(30px,6vw,60px);
-  margin-bottom:20px;
+.cake-screen{
+  background:linear-gradient(135deg,#51291f,#8c5140);
 }
 
 .cake{
-  font-size:150px;
-  animation:cake 1.4s infinite alternate;
+  font-size:120px;
+  animation:float 1.5s infinite alternate;
 }
 
-@keyframes cake{
-  to{transform:scale(1.08) rotate(-2deg)}
+@keyframes float{
+  to{transform:translateY(-12px)}
 }
 
-.cakeBox p{
-  font-size:22px;
-  margin:18px;
+.cake-text{
+  font-size:28px;
+  margin:10px;
 }
 
 /* LETTER */
-.letterScreen{padding:20px}
+
+.letter-screen{
+  background:linear-gradient(135deg,#352019,#754536);
+  padding:20px;
+  overflow:auto;
+  justify-content:flex-start !important;
+}
 
 .letter{
-  width:min(850px,92vw);
-  max-height:88vh;
-  overflow:hidden;
-  background:#f4dfc9;
-  color:#49271b;
-  border:5px solid #b78967;
-  border-radius:25px;
-  padding:clamp(20px,4vw,42px);
-  box-shadow:0 20px 60px #150906;
+  width:min(92vw,750px);
+  background:#fff8ed;
+  color:#4a2a21;
+  padding:25px;
+  border-radius:20px;
+  text-align:left;
+  line-height:1.65;
+  font-size:16px;
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
+  margin:20px auto;
 }
 
-.letter h1{
+.letter h2{
   text-align:center;
-  font-size:clamp(25px,5vw,42px);
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
 
-.letter p{
-  font-family:Arial,sans-serif;
-  font-size:clamp(13px,1.8vw,18px);
-  line-height:1.48;
+.letter button{
+  display:block;
+  margin:20px auto 0;
 }
 
 /* FINAL */
-.finalBox{text-align:center}
 
-.finalBox img{
-  max-width:75vw;
-  max-height:65vh;
-  border:7px solid #ead2bc;
-  box-shadow:0 20px 55px #130805;
+.final-screen{
+  background:#26140f;
+  padding:20px;
 }
 
-.finalBox h2{
-  margin-top:15px;
-  font-size:clamp(17px,4vw,29px);
+.final-img{
+  width:min(88vw,500px);
+  max-height:70vh;
+  object-fit:contain;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
+  animation:photoIn 1s ease;
 }
+
+.final-text{
+  margin-top:18px;
+  font-size:22px;
+  font-weight:bold;
+  line-height:1.5;
+}
+
+.final-bye{
+  margin-top:8px;
+  font-size:18px;
+}
+
+/* MOBILE */
 
 @media(max-width:600px){
-  .photoArea{gap:8px}
-  .photoCard{
-    width:45vw;
-    height:67vh;
-    padding:8px;
-    border-width:4px;
+  .photo-grid{
+    gap:7px;
   }
-  .photoCard.single{
-    width:82vw;
-    height:70vh;
+
+  .photo-card{
+    width:46vw;
+    padding:5px;
+    border-radius:12px;
   }
-  .photoNote{
-    bottom:12px;
-    padding:7px 10px;
-    font-size:13px;
+
+  .photo-card img{
+    height:48vh;
   }
-  .letter p{
-    font-size:12.5px;
-    line-height:1.4;
+
+  .note{
+    font-size:11px;
+    padding:6px 2px;
+  }
+
+  .letter{
+    font-size:14px;
+    padding:18px;
+  }
+
+  .cat{
+    font-size:45px;
   }
 }
 </style>
@@ -302,325 +289,480 @@ button:hover{transform:scale(1.05)}
 <body>
 
 <!-- OPEN -->
-<section id="open" class="screen active">
-  <div class="openBox">
-    <div class="heart">🤎</div>
-    <h1>Something special for you...</h1>
-    <button onclick="openCard()">OPEN 💌</button>
-    <button onclick="showNo()">NO 🙈</button>
+<section id="open" class="screen active open-screen">
+  <div class="heart">❤️</div>
+  <h1>Someone special has a birthday...</h1>
+  <p>Wanna open it? 🥹</p>
+
+  <div>
+    <button onclick="openCard()">OPEN 💖</button>
+    <button onclick="showNo()">NO 😭</button>
   </div>
+
+  <div id="noMsg"></div>
 </section>
 
-<!-- NO -->
-<section id="no" class="screen">
-  <div class="noBox">
-    <div class="cry">😭</div>
-    <h2>Areyyy open karo naaa 🥺</h2>
-    <button onclick="goTo('open')">Okay okay 😂</button>
-  </div>
-</section>
 
 <!-- HERO -->
-<section id="hero" class="screen">
-  <div class="hero">
-    <div class="heroCats">🐱 🎉 🐱</div>
-    <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA 🎂🤎</h1>
-    <p>My favourite annoying elder brother 😂🤎</p>
-  </div>
+<section id="hero" class="screen hero">
+  <div class="cat left">🐱🎉</div>
+  <div class="cat right">🎉🐱</div>
+
+  <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA 🎂❤️</h1>
+  <p style="font-size:22px;">🎈🥳🎉</p>
 </section>
+
 
 <!-- CAKE -->
-<section id="cake" class="screen">
-  <div class="cakeBox">
-    <h1>Make a Wish ✨</h1>
-    <div class="cake">🎂</div>
-    <p>Close your eyes and make your birthday wish 🕯️✨</p>
-    <button onclick="goTo('letter')">NEXT 💌</button>
-  </div>
+<section id="cake" class="screen cake-screen">
+  <div class="cake">🎂</div>
+  <div class="cake-text">Make a Wish! ✨</div>
+  <p>Happy Birthday Bhaiya ❤️</p>
+
+  <button onclick="showLetter()">NEXT 💌</button>
 </section>
 
+
 <!-- LETTER -->
-<section id="letter" class="screen letterScreen">
+<section id="letter" class="screen letter-screen">
+
   <div class="letter">
-    <h1>For My Kuchupuchu 🥹🤎</h1>
+
+    <h2>For My Bhaiya ❤️</h2>
 
     <p>
       Heyyy Kuchupuchu! 🥹💖 Wish you a super duper Happy Birthday! 🎂✨🎈
-      <br><br>
+    </p>
 
+    <p>
       I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
       On a serious note, I care for you deeply. 🥺💗 I never want you to face any
       trouble in the future, which is why I want you to focus, study hard 📚✏️,
-      and not waste your precious time hanging around aimlessly in friend circles 🙅‍♀️👥.
-      <br><br>
+      and not waste your precious time hanging around aimlessly in friend circles
+      🙅‍♀️👥.
+    </p>
 
+    <p>
       Please understand, when I tell you not to do something, just don't do it! 🛑
       I only say it because I want you to succeed in life 🌟🏆. Right now it might
-      feel like I’m forcing you 😅, but trust me, you will understand why later 💭💖.
-      <br><br>
+      feel like I’m forcing you 😅, but trust me, you will understand why later
+      💭💖.
+    </p>
 
-      No matter how much we fight 🥊💥, you’ll always be my brother 🫂,
-      and I’ll always have your back 💕. Have an amazing day! 🎉🥳
-      <br><br>
+    <p>
+      No matter how much we fight 🥊💥, you’ll always be my brother 🫂, and I’ll
+      always have your back 💕. Have an amazing day! 🎉🥳
+    </p>
 
-      Love you so much, 🥰
-      <br>
+    <p>
+      Love you so much, 🥰<br>
       Your Billu ✨🐾
     </p>
 
-    <div style="text-align:center;margin-top:12px">
-      <button onclick="goTo('final')">NEXT 🤎</button>
-    </div>
+    <button onclick="showFinal()">NEXT 📱</button>
+
   </div>
 </section>
 
-<!-- FINAL -->
-<section id="final" class="screen">
-  <div class="finalBox">
-    <img src="image 20.jpg" alt="Final memory">
-    <h2>Apne mera phone kho diya… yeh nahi bhulungi mai kabhi 😭📱😂</h2>
-    <p style="margin-top:10px;font-size:20px">byy, take care 🤎</p>
+
+<!-- FINAL PHONE PHOTO -->
+<section id="final" class="screen final-screen">
+
+  <img
+    src="image 20.jpg"
+    class="final-img"
+    alt="Final photo"
+  >
+
+  <div class="final-text">
+    Apne mera phone kho diya…<br>
+    yeh nahi bhulungi mai kabhi 😭📱😂
   </div>
+
+  <div class="final-bye">
+    byy, take care ❤️
+  </div>
+
 </section>
+
 
 <audio id="music" src="song.jpg.mp3" preload="auto"></audio>
 
 <script>
 
-const photos=[
-"image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg",
-"image6.jpg","image7.jpg","image8.jpg","image9.jpg","image10.jpg",
-"image11.jpg","image12.jpg","image13.jpg","image14.jpg","image15.jpg",
-"image16.jpg","image17.jpg","image18.jpg","image19.jpg","image 20.jpg"
-];
+/* -------------------------
+   SCREEN CONTROL
+------------------------- */
 
-const notes=[
-"3 years apart, but still stuck with each other 😂🤎",
-"My annoying elder brother, always there when I need you 🫂",
-"Some memories are just too precious 🥹",
-"Growing up with you gave me the funniest memories 😂",
-"Still the same bhaiya, just a little older now 😭😂",
-"Fights, laughter and everything in between 🤎",
-"You annoy me, but I wouldn't trade you for anyone 😂",
-"One memory I'll always keep close 🥹✨",
-"My built-in protector since forever 🫂",
-"Okay fine... sometimes you're actually nice 😂",
-"Brother-sister chaos at its finest 🤎",
-"Always wishing the best for you 🌟",
-"Another memory with my favourite elder brother 📸",
-"No matter how much we fight, you're still my bhaiya 🫶",
-"Growing up together is something I'll always treasure 🥹",
-"From childhood memories to today 🤎",
-"You'll always have your Billu cheering for you 📣",
-"Some bonds don't need many words 🫂",
-"Another year, another collection of memories 🎂",
-"Happy Birthday to my one and only bhaiya 🤎🎉"
-];
+let timer = null;
+let currentPhotoPage = 0;
 
-/* CREATE PHOTO PAGES */
+function showScreen(id){
 
-photos.forEach((src,i)=>{
-
-  const section=document.createElement("section");
-  section.id="photo"+i;
-  section.className="screen";
-
-  /*
-     Every 3rd photo gets a two-photo layout.
-     The second image is the next photo.
-  */
-
-  if(i%3===0 && i<photos.length-1){
-
-    section.innerHTML=`
-      <div class="photoArea">
-
-        <div class="photoCard">
-          <img class="anim1" src="${src}">
-          <div class="photoNote">${notes[i]}</div>
-        </div>
-
-        <div class="photoCard">
-          <img class="anim2" src="${photos[i+1]}">
-        </div>
-
-      </div>
-    `;
-
-  }else{
-
-    section.innerHTML=`
-      <div class="photoArea">
-
-        <div class="photoCard single">
-          <img class="anim${(i%3)+1}" src="${src}">
-          <div class="photoNote">${notes[i]}</div>
-        </div>
-
-      </div>
-    `;
-  }
-
-  document.body.insertBefore(section,document.getElementById("cake"));
-});
-
-/* SCREEN */
-
-let timer=null;
-
-function goTo(id){
-
-  clearTimeout(timer);
-
-  document.querySelectorAll(".screen").forEach(s=>{
-    s.classList.remove("active");
+  document.querySelectorAll(".screen").forEach(screen=>{
+    screen.classList.remove("active");
   });
 
   document.getElementById(id).classList.add("active");
-
-  startPetals();
 }
 
-/* OPEN */
+
+/* -------------------------
+   NO BUTTON
+------------------------- */
+
+function showNo(){
+
+  document.getElementById("noMsg").innerHTML =
+    `<div class="no-message">🥺 Why nooo... 💔🐱</div>`;
+
+}
+
+
+/* -------------------------
+   OPEN CARD + MUSIC
+------------------------- */
 
 function openCard(){
 
-  const music=document.getElementById("music");
+  const music = document.getElementById("music");
 
-  music.currentTime=0;
+  /*
+    Song starts only once here.
+    It will NOT be restarted during photos,
+    cake, letter or final page.
+  */
 
   music.play().catch(()=>{});
 
-  goTo("hero");
+  showScreen("hero");
 
-  timer=setTimeout(()=>{
+  createPetals();
+
+  clearTimeout(timer);
+
+  timer = setTimeout(()=>{
     startPhotos();
   },4000);
+
 }
 
-function showNo(){
-  goTo("no");
+
+/* -------------------------
+   PETALS
+------------------------- */
+
+function createPetals(){
+
+  setInterval(()=>{
+
+    const petal = document.createElement("div");
+
+    petal.className="petal";
+    petal.innerHTML="🌹";
+
+    petal.style.left=Math.random()*100+"vw";
+    petal.style.fontSize=(12+Math.random()*15)+"px";
+    petal.style.animationDuration=(4+Math.random()*4)+"s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(()=>{
+      petal.remove();
+    },8000);
+
+  },350);
+
 }
 
-/* POP SOUND — GENERATED IN BROWSER */
+
+/* -------------------------
+   PHOTO DATA
+------------------------- */
+
+const photos = [
+  "image1.jpg",
+  "image2.jpg",
+  "image3.jpg",
+  "image4.jpg",
+  "image5.jpg",
+  "image6.jpg",
+  "image7.jpg",
+  "image8.jpg",
+  "image9.jpg",
+  "image10.jpg",
+  "image11.jpg",
+  "image12.jpg",
+  "image13.jpg",
+  "image14.jpg",
+  "image15.jpg",
+  "image16.jpg",
+  "image17.jpg",
+  "image18.jpg",
+  "image19.jpg",
+  "image 20.jpg"
+];
+
+
+const notes = [
+  "My annoying but lovable bhaiya ❤️",
+  "Always there when I need you 🫂",
+  "Bas thoda kam tang kiya karo 😭😂",
+  "My forever protective brother 🥹",
+  "Childhood memories forever ❤️",
+  "Fights bhi zaroori hain 😂",
+  "But I still love you the most 💕",
+  "Keep smiling always ✨",
+  "Proud of you bhaiya 🥹",
+  "You deserve all the happiness ❤️",
+  "Study hard, future bright hai 📚✨",
+  "Don't waste your precious time 😭😂",
+  "Always believe in yourself 🌟",
+  "I'll always have your back 🫂",
+  "No matter how much we fight ❤️",
+  "You're stuck with me forever 😂",
+  "My favourite annoying person 😭",
+  "Keep achieving everything you want 🏆",
+  "Stay happy and blessed always ✨",
+  "Love you so much, Bhaiya ❤️"
+];
+
+
+/* -------------------------
+   CREATE PHOTO PAGES
+   2 PHOTOS PER PAGE
+------------------------- */
+
+function startPhotos(){
+
+  currentPhotoPage=0;
+
+  buildPhotoPages();
+
+  showPhotoPage(0);
+
+}
+
+
+/* -------------------------
+   BUILD ALL PHOTO PAGES
+------------------------- */
+
+function buildPhotoPages(){
+
+  /*
+    Remove old photo pages first.
+  */
+
+  document.querySelectorAll(".photo-screen").forEach(el=>{
+    el.remove();
+  });
+
+
+  /*
+    20 photos = 10 pages
+    2 photos on every page.
+  */
+
+  for(let page=0; page<photos.length; page+=2){
+
+    const section=document.createElement("section");
+
+    section.id="photoPage"+(page/2);
+    section.className="screen photo-screen";
+
+    let html=`
+      <div class="photo-title">
+        💕 Bhaiya Memories 💕
+      </div>
+
+      <div class="photo-grid">
+    `;
+
+
+    /*
+      First photo
+    */
+
+    html+=`
+      <div class="photo-card">
+        <img src="${photos[page]}" alt="Memory">
+        <div class="note">
+          ${notes[page]}
+        </div>
+      </div>
+    `;
+
+
+    /*
+      Second photo
+    */
+
+    if(photos[page+1]){
+
+      html+=`
+        <div class="photo-card">
+          <img src="${photos[page+1]}" alt="Memory">
+          <div class="note">
+            ${notes[page+1]}
+          </div>
+        </div>
+      `;
+
+    }
+
+
+    html+=`</div>`;
+
+    section.innerHTML=html;
+
+    /*
+      Put photo pages BEFORE cake.
+    */
+
+    document.body.insertBefore(
+      section,
+      document.getElementById("cake")
+    );
+
+  }
+
+}
+
+
+/* -------------------------
+   POP SOUND
+------------------------- */
 
 let audioCtx=null;
 
 function popSound(){
 
-  if(!audioCtx){
-    audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-  }
+  try{
 
-  const osc=audioCtx.createOscillator();
-  const gain=audioCtx.createGain();
+    if(!audioCtx){
 
-  osc.type="sine";
+      audioCtx =
+        new(window.AudioContext || window.webkitAudioContext)();
 
-  osc.frequency.setValueAtTime(180,audioCtx.currentTime);
-  osc.frequency.exponentialRampToValueAtTime(
-    700,
-    audioCtx.currentTime+0.07
-  );
+    }
 
-  gain.gain.setValueAtTime(
-    0.0001,
-    audioCtx.currentTime
-  );
+    if(audioCtx.state==="suspended"){
+      audioCtx.resume();
+    }
 
-  gain.gain.exponentialRampToValueAtTime(
-    0.18,
-    audioCtx.currentTime+0.01
-  );
+    const osc=audioCtx.createOscillator();
+    const gain=audioCtx.createGain();
 
-  gain.gain.exponentialRampToValueAtTime(
-    0.0001,
-    audioCtx.currentTime+0.13
-  );
+    osc.type="sine";
 
-  osc.connect(gain);
-  gain.connect(audioCtx.destination);
+    osc.frequency.setValueAtTime(
+      180,
+      audioCtx.currentTime
+    );
 
-  osc.start();
-  osc.stop(audioCtx.currentTime+0.14);
+    osc.frequency.exponentialRampToValueAtTime(
+      700,
+      audioCtx.currentTime+0.07
+    );
+
+    gain.gain.setValueAtTime(
+      0.0001,
+      audioCtx.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.18,
+      audioCtx.currentTime+0.01
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      audioCtx.currentTime+0.13
+    );
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+
+    osc.stop(audioCtx.currentTime+0.14);
+
+  }catch(e){}
+
 }
 
-/* PHOTOS */
 
-function startPhotos(){
-  showPhoto(0);
-}
+/* -------------------------
+   SHOW PHOTO PAGE
+------------------------- */
 
-function showPhoto(i){
+function showPhotoPage(page){
 
   clearTimeout(timer);
 
-  goTo("photo"+i);
+  currentPhotoPage=page;
 
-  /* pop transition sound */
+  showScreen("photoPage"+page);
+
   popSound();
 
+
   /*
-    Each photo page stays 5 seconds.
-    Some pages contain 2 photos.
+    Each page stays 5 seconds.
   */
 
   timer=setTimeout(()=>{
 
-    if(i<photos.length-1){
+    if(page < 9){
 
-      /*
-        When a page already showed photo i+1,
-        skip it so it doesn't repeat.
-      */
-
-      if(i%3===0 && i+1<photos.length){
-        showPhoto(i+2);
-      }else{
-        showPhoto(i+1);
-      }
+      showPhotoPage(page+1);
 
     }else{
-      goTo("cake");
+
+      /*
+        ALL 20 PHOTOS FINISHED
+        NOW CAKE
+      */
+
+      showScreen("cake");
+
     }
 
   },5000);
+
 }
 
-/* PETALS */
 
-let petalTimer;
+/* -------------------------
+   LETTER
+------------------------- */
 
-function startPetals(){
+function showLetter(){
 
-  clearInterval(petalTimer);
+  clearTimeout(timer);
 
-  petalTimer=setInterval(()=>{
+  showScreen("letter");
 
-    const p=document.createElement("div");
-
-    p.className="petal";
-
-    const items=["🌹","🌸","🌷","✨","🤎"];
-
-    p.innerText=items[
-      Math.floor(Math.random()*items.length)
-    ];
-
-    p.style.left=Math.random()*100+"vw";
-    p.style.fontSize=(12+Math.random()*14)+"px";
-    p.style.animationDuration=(5+Math.random()*4)+"s";
-
-    document.body.appendChild(p);
-
-    setTimeout(()=>{
-      p.remove();
-    },9000);
-
-  },500);
 }
 
-startPetals();
+
+/* -------------------------
+   FINAL PHONE PHOTO
+------------------------- */
+
+function showFinal(){
+
+  clearTimeout(timer);
+
+  showScreen("final");
+
+  /*
+    Nothing happens after this.
+    Final page stays here.
+  */
+
+}
 
 </script>
 

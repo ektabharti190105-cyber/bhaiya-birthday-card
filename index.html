@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bhaiya 🤎</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family: Georgia, serif;
+  background:#3b241b;
+  color:#fff7ed;
+  overflow-x:hidden;
+}
+
+/* ---------- OPENING ---------- */
+
+#opening{
+  min-height:100vh;
+  background:linear-gradient(135deg,#2b1710,#5a3526,#3b241b);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.open-card{
+  position:relative;
+  z-index:5;
+}
+
+.heart{
+  font-size:110px;
+  animation:heartbeat 1.4s infinite;
+  filter:drop-shadow(0 8px 15px #1d0d08);
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.12)}
+}
+
+.open-card h1{
+  font-size:32px;
+  margin:10px 0 25px;
+}
+
+.open-btn{
+  border:none;
+  padding:14px 35px;
+  border-radius:30px;
+  background:#f1c7a9;
+  color:#3b241b;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 5px 20px #1c0d08;
+}
+
+.no-btn{
+  border:none;
+  padding:10px 22px;
+  border-radius:25px;
+  background:#704b3a;
+  color:white;
+  margin-left:10px;
+  cursor:pointer;
+}
+
+#cry{
+  display:none;
+  font-size:100px;
+  margin-top:20px;
+  animation:shake .5s infinite alternate;
+}
+
+@keyframes shake{
+  from{transform:rotate(-7deg)}
+  to{transform:rotate(7deg)}
+}
+
+/* ---------- MAIN ---------- */
+
+#main{
+  display:none;
+  min-height:100vh;
+  background:#3b241b;
+}
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  padding:30px;
+}
+
+.hero h1{
+  font-size:clamp(40px,8vw,85px);
+  line-height:1.05;
+  color:#ffe5cf;
+  text-shadow:0 5px 20px #1d0d08;
+  animation:zoom 2s ease;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:20px;
+}
+
+.cat{
+  position:absolute;
+  font-size:85px;
+  bottom:60px;
+}
+
+.cat.left{left:25px}
+.cat.right{right:25px}
+
+.pop{
+  position:absolute;
+  font-size:50px;
+  animation:pop 2s infinite;
+}
+
+.p1{left:8%;top:20%}
+.p2{right:8%;top:25%}
+
+@keyframes pop{
+  0%,100%{transform:scale(.8)}
+  50%{transform:scale(1.2)}
+}
+
+@keyframes zoom{
+  from{transform:scale(.5);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+/* ---------- PETALS / EMOJIS ---------- */
+
+.falling{
+  position:fixed;
+  top:-50px;
+  z-index:20;
+  pointer-events:none;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
+}
+
+/* ---------- SECTIONS ---------- */
+
+.section{
+  padding:80px 20px;
+  text-align:center;
+  background:#4a2c20;
+}
+
+.section h2{
+  font-size:42px;
+  color:#ffe2cc;
+  margin-bottom:40px;
+}
+
+.subtitle{
+  font-size:18px;
+  margin-bottom:35px;
+}
+
+/* ---------- POLAROIDS ---------- */
+
+.gallery{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:30px;
+}
+
+.polaroid{
+  background:#fff8ef;
+  padding:10px 10px 35px;
+  box-shadow:0 10px 25px #24140e;
+  color:#4b2b20;
+  transform:rotate(var(--rotate));
+  transition:.5s;
+  animation:photoIn 1s ease both;
+}
+
+.polaroid:hover{
+  transform:rotate(0deg) scale(1.06);
+  z-index:3;
+}
+
+.polaroid img{
+  width:100%;
+  aspect-ratio:1/1.15;
+  object-fit:cover;
+  display:block;
+}
+
+.polaroid p{
+  padding-top:12px;
+  font-size:16px;
+}
+
+@keyframes photoIn{
+  from{
+    opacity:0;
+    transform:scale(.6) rotate(0deg);
+  }
+  to{
+    opacity:1;
+    transform:rotate(var(--rotate));
+  }
+}
+
+/* ---------- VIDEOS ---------- */
+
+.video-box{
+  max-width:850px;
+  margin:35px auto;
+  background:#24150f;
+  padding:18px;
+  border:10px solid #17100d;
+  border-radius:8px;
+  box-shadow:0 15px 35px #21120c;
+}
+
+.video-box video{
+  width:100%;
+  display:block;
+}
+
+.film-title{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+/* ---------- CAKE ---------- */
+
+.cake{
+  font-size:130px;
+  margin:20px;
+  animation:cakeFloat 2s infinite;
+}
+
+@keyframes cakeFloat{
+  50%{transform:translateY(-12px)}
+}
+
+.wish{
+  font-size:25px;
+  margin:20px;
+  color:#ffe4d0;
+}
+
+/* ---------- LETTER ---------- */
+
+.letter{
+  max-width:800px;
+  margin:auto;
+  background:#f7e3cf;
+  color:#43271c;
+  padding:45px;
+  border-radius:5px;
+  box-shadow:0 15px 35px #24140e;
+  text-align:left;
+  line-height:1.8;
+  font-size:18px;
+}
+
+.letter h2{
+  color:#6b3e2c;
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.final-photo{
+  max-width:500px;
+  margin:45px auto 20px;
+  position:relative;
+}
+
+.final-photo img{
+  width:100%;
+  border:10px solid #f7e3cf;
+  box-shadow:0 12px 30px #21120c;
+}
+
+.final-message{
+  margin-top:20px;
+  font-size:25px;
+  font-weight:bold;
+  color:#ffe4d0;
+}
+
+.footer{
+  padding:50px;
+  text-align:center;
+  font-size:20px;
+  background:#2b1811;
+}
+
+/* mobile */
+
+@media(max-width:600px){
+  .cat{
+    font-size:55px;
+  }
+
+  .letter{
+    padding:25px;
+    font-size:16px;
+  }
+
+  .section h2{
+    font-size:32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<section id="opening">
+
+  <div class="open-card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Someone special has a birthday...</h1>
+
+    <p style="font-size:22px;margin-bottom:25px;">
+      Will you open this? 🥹
+    </p>
+
+    <button class="open-btn" onclick="openCard()">
+      OPEN 🤎
+    </button>
+
+    <button class="no-btn" onclick="cry()">
+      NO 😭
+    </button>
+
+    <div id="cry">😭</div>
+
+  </div>
+
+</section>
+
+
+<!-- MAIN SITE -->
+<div id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="cat left">🐱🎉</div>
+    <div class="cat right">🎉🐱</div>
+
+    <div class="pop p1">🎊</div>
+    <div class="pop p2">🎉</div>
+
+    <div>
+      <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA! 🎂🤎</h1>
+      <p>To my favourite Kuchupuchu 🥹🫶</p>
+    </div>
+
+  </section>
+
+
+  <!-- PHOTOS -->
+  <section class="section">
+
+    <h2>Our Little Memories 📸🤎</h2>
+
+    <p class="subtitle">
+      From those little moments to all the memories we have now... 🥹
+    </p>
+
+    <div class="gallery">
+
+      <div class="polaroid" style="--rotate:-3deg">
+        <img src="photo1.jpg">
+        <p>Little birthday boy 🎂</p>
+      </div>
+
+      <div class="polaroid" style="--rotate:3deg">
+        <img src="photo2.jpg">
+        <p>Always my bhaiya 🫂</p>
+      </div>
+
+      <div class="polaroid" style="--rotate:-2deg">
+        <img src="photo3.jpg">
+        <p>My favourite person 🤎</p>
+      </div>
+
+      <div class="polaroid" style="--rotate:4deg">
+        <img src="photo4.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-4deg">
+        <img src="photo5.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:2deg">
+        <img src="photo6.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-3deg">
+        <img src="photo7.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:3deg">
+        <img src="photo8.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-2deg">
+        <img src="photo9.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:4deg">
+        <img src="photo10.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-4deg">
+        <img src="photo11.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:2deg">
+        <img src="photo12.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-3deg">
+        <img src="photo13.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:3deg">
+        <img src="photo14.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-2deg">
+        <img src="photo15.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:4deg">
+        <img src="photo16.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-4deg">
+        <img src="photo17.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:2deg">
+        <img src="photo18.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-3deg">
+        <img src="photo19.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:3deg">
+        <img src="photo20.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:-2deg">
+        <img src="photo21.jpg">
+      </div>
+
+      <div class="polaroid" style="--rotate:4deg">
+        <img src="photo22.jpg">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VIDEOS -->
+
+  <section class="section">
+
+    <h2>Our Little Movies 🎞️</h2>
+
+    <div class="video-box">
+
+      <div class="film-title">🎬 Memory No. 1</div>
+
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+    <div class="video-box">
+
+      <div class="film-title">🎬 Memory No. 2</div>
+
+      <video controls>
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+  </section>
+
+
+  <!-- CAKE -->
+
+  <section class="section">
+
+    <h2>Now Make A Wish... ✨</h2>
+
+    <div class="cake">🎂</div>
+
+    <div class="wish">
+      Close your eyes... make your biggest wish... 🌟
+    </div>
+
+    <p style="font-size:20px;margin-top:25px;">
+      And now... CUT THE CAKE! 🎂🔪😂
+    </p>
+
+  </section>
+
+
+  <!-- LETTER -->
+
+  <section class="section">
+
+    <h2>A Little Letter For You 💌</h2>
+
+    <div class="letter">
+
+      <h2>Heyyy Kuchupuchu! 🥹💖</h2>
+
+      <p>
+        Wish you a super duper Happy Birthday! 🎂✨🎈
+      </p>
+
+      <p>
+        I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
+        On a serious note, I care for you deeply. 🥺💗
+        I never want you to face any trouble in the future, which is why I want you
+        to focus, study hard 📚✏️, and not waste your precious time hanging around
+        aimlessly in friend circles 🙅‍♀️👥.
+      </p>
+
+      <p>
+        Please understand, when I tell you not to do something, just don't do it! 🛑
+        I only say it because I want you to succeed in life 🌟🏆.
+        Right now it might feel like I’m forcing you 😅, but trust me,
+        you will understand why later 💭💖.
+      </p>
+
+      <p>
+        No matter how much we fight 🥊💥, you’ll always be my brother 🫂,
+        and I’ll always have your back 💕.
+        Have an amazing day! 🎉🥳
+      </p>
+
+      <p>
+        Love you so much, 🥰
+      </p>
+
+      <p>
+        <strong>Your Billu ✨🐾</strong>
+      </p>
+
+    </div>
+
+
+    <!-- FINAL PHOTO -->
+
+    <div class="final-photo">
+      <img src="photo22.jpg">
+    </div>
+
+    <div class="final-message">
+      Apne mera phone kho diya...<br>
+      yeh nahi bhulungi mai kabhi 😭📱😂
+    </div>
+
+  </section>
+
+
+  <div class="footer">
+    Take care, Kuchupuchu 🤎🐾<br><br>
+    Happy Birthday once again! 🎂🥳
+  </div>
+
+</div>
+
+
+<!-- SONG -->
+<audio id="song" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+function openCard(){
+
+  document.getElementById("opening").style.display="none";
+  document.getElementById("main").style.display="block";
+
+  const song=document.getElementById("song");
+
+  song.play().catch(()=>{
+    console.log("Song needs browser permission.");
+  });
+
+  startEffects();
+}
+
+function cry(){
+
+  document.getElementById("cry").style.display="block";
+
+}
+
+function startEffects(){
+
+  const things=["🌹","🌸","💗","🤎","✨","🎉","🥹","🫶","💕"];
+
+  setInterval(()=>{
+
+    const item=document.createElement("div");
+
+    item.className="falling";
+
+    item.innerHTML=
+      things[Math.floor(Math.random()*things.length)];
+
+    item.style.left=Math.random()*100+"vw";
+
+    item.style.fontSize=
+      (15+Math.random()*25)+"px";
+
+    item.style.animationDuration=
+      (4+Math.random()*5)+"s";
+
+    document.body.appendChild(item);
+
+    setTimeout(()=>{
+      item.remove();
+    },9000);
+
+  },250);
+
+}
+
+</script>
+
+</body>
+</html>

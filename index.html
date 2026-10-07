@@ -6,56 +6,93 @@
 <title>Happy Birthday Bhaiya 🤎</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
 
 body{
   font-family:Georgia,serif;
   background:#3b241b;
   color:#fff3e8;
-  overflow-x:hidden;
 }
 
-button{font-family:inherit}
-
-/* OPENING */
-#opening{
-  min-height:100vh;
-  display:flex;
+/* EVERY SCREEN = FULL SCREEN */
+.screen{
+  display:none;
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:linear-gradient(135deg,#2a1710,#5a3828,#3b241b);
+  background:linear-gradient(135deg,#2a1710,#674333,#3b241b);
 }
 
-.openbox{padding:30px}
+.screen.active{
+  display:flex;
+  animation:screenIn .7s ease;
+}
+
+@keyframes screenIn{
+  from{
+    opacity:0;
+    transform:scale(1.04);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* OPENING */
+.openbox{
+  width:90%;
+  max-width:650px;
+}
 
 .heart{
   font-size:110px;
-  animation:beat 1.3s infinite;
+  animation:heartbeat 1.2s infinite;
 }
 
-@keyframes beat{
-  50%{transform:scale(1.15)}
+@keyframes heartbeat{
+  50%{transform:scale(1.18)}
 }
 
 .openbox h1{
-  font-size:30px;
-  margin:15px 0 10px;
+  font-size:clamp(28px,5vw,48px);
+  color:#ffe1cb;
+  margin:20px 0 12px;
 }
 
 .openbox p{
-  font-size:20px;
-  margin-bottom:25px;
+  font-size:21px;
+  margin-bottom:30px;
 }
 
 .btn{
   border:0;
   border-radius:30px;
-  padding:14px 30px;
-  margin:5px;
-  font-size:18px;
+  padding:15px 35px;
+  margin:7px;
+  font-size:19px;
   font-weight:bold;
   cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.08);
 }
 
 .open{
@@ -71,67 +108,88 @@ button{font-family:inherit}
 #cry{
   display:none;
   font-size:100px;
-  margin-top:25px;
+  margin-top:20px;
+  animation:shake .5s infinite;
 }
 
-/* MAIN */
-#main{display:none}
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(135deg,#3b241b,#674333,#3b241b);
+@keyframes shake{
+  25%{transform:rotate(-8deg)}
+  75%{transform:rotate(8deg)}
 }
 
-.hero h1{
-  font-size:clamp(42px,8vw,85px);
+/* BIRTHDAY SCREEN */
+.birthday h1{
+  font-size:clamp(40px,8vw,85px);
   color:#ffe1cb;
   text-shadow:0 8px 20px #1c0d08;
-  animation:zoom 1.8s ease;
+  animation:zoomText 1.3s ease;
 }
 
-.hero p{
-  font-size:23px;
-  margin-top:20px;
+.birthday p{
+  font-size:24px;
+  margin-top:25px;
+  animation:fadeUp 1.5s ease;
 }
 
-@keyframes zoom{
-  from{transform:scale(.5);opacity:0}
-  to{transform:scale(1);opacity:1}
+@keyframes zoomText{
+  from{
+    transform:scale(.3);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
 }
 
+@keyframes fadeUp{
+  from{
+    transform:translateY(30px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+
+/* CATS + POPPERS */
 .cat{
   position:absolute;
   font-size:75px;
-  bottom:50px;
+  bottom:70px;
+  animation:bounce 1.5s infinite alternate;
 }
 
-.left{left:25px}
-.right{right:25px}
+.left{left:5%}
+.right{right:5%}
+
+@keyframes bounce{
+  to{
+    transform:translateY(-20px) rotate(5deg);
+  }
+}
 
 .popper{
   position:absolute;
-  font-size:55px;
-  animation:pop 1.5s infinite alternate;
+  font-size:60px;
+  animation:popper 1s infinite alternate;
 }
 
-.p1{left:10%;top:20%}
-.p2{right:10%;top:25%}
+.p1{left:10%;top:18%}
+.p2{right:10%;top:20%}
 
-@keyframes pop{
-  to{transform:scale(1.25) rotate(8deg)}
+@keyframes popper{
+  to{
+    transform:scale(1.3) rotate(12deg);
+  }
 }
 
-/* FALLING */
+/* FALLING EMOJIS */
 .fall{
   position:fixed;
-  top:-40px;
-  z-index:50;
+  top:-50px;
+  z-index:100;
   pointer-events:none;
   animation:fall linear forwards;
 }
@@ -142,178 +200,309 @@ button{font-family:inherit}
   }
 }
 
-/* SECTIONS */
-.section{
-  padding:80px 20px;
-  text-align:center;
-  background:#4a2c20;
+/* NEXT BUTTON */
+.next{
+  position:absolute;
+  bottom:25px;
+  right:25px;
+  z-index:200;
+  background:#f3c9a9;
+  color:#3b241b;
+  border:0;
+  border-radius:30px;
+  padding:12px 24px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 5px 15px #21120c;
 }
 
-.section:nth-child(even){
-  background:#3b241b;
+.back{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  z-index:200;
+  background:#6b4939;
+  color:white;
+  border:0;
+  border-radius:30px;
+  padding:12px 24px;
+  font-size:17px;
+  cursor:pointer;
 }
 
-.section h2{
+/* PHOTO SCREEN */
+.photo-screen{
+  flex-direction:column;
+  padding:35px 20px 80px;
+}
+
+.photo-title{
+  font-size:32px;
   color:#ffe1cb;
-  font-size:42px;
   margin-bottom:20px;
 }
 
-.subtitle{
-  font-size:18px;
-  margin-bottom:40px;
+.photo-count{
+  font-size:16px;
+  margin-bottom:15px;
 }
 
-/* GALLERY */
-.gallery{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:30px;
-}
-
-.polaroid{
+.photo-frame{
+  width:min(78vw,480px);
+  height:min(68vh,500px);
   background:#fff7ed;
-  color:#4a2c20;
-  padding:10px 10px 28px;
-  box-shadow:0 12px 25px #21120c;
-  transition:.5s;
-  animation:appear 1s ease both;
+  padding:12px 12px 35px;
+  box-shadow:0 20px 45px #1b0d08;
+  transform:rotate(-2deg);
+  animation:photoIn .8s ease;
 }
 
-.polaroid:nth-child(odd){transform:rotate(-3deg)}
-.polaroid:nth-child(even){transform:rotate(3deg)}
-
-.polaroid:hover{
-  transform:scale(1.07) rotate(0);
-  z-index:3;
-}
-
-.polaroid img{
+.photo-frame img{
   width:100%;
-  aspect-ratio:1/1.12;
+  height:100%;
   object-fit:cover;
   display:block;
 }
 
-.polaroid p{
-  padding-top:12px;
-  font-size:16px;
+@keyframes photoIn{
+  from{
+    opacity:0;
+    transform:scale(.5) rotate(-12deg);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) rotate(-2deg);
+  }
 }
 
-@keyframes appear{
-  from{opacity:0;transform:scale(.6)}
-  to{opacity:1}
+.photo-caption{
+  margin-top:15px;
+  font-size:20px;
+  color:#ffe1cb;
 }
 
-/* VIDEOS */
+/* VIDEO */
+.video-screen{
+  flex-direction:column;
+  padding:30px;
+}
+
+.video-title{
+  font-size:35px;
+  color:#ffe1cb;
+  margin-bottom:25px;
+}
+
 .film{
-  max-width:800px;
-  margin:35px auto;
+  width:min(88vw,800px);
   background:#1d110c;
   padding:18px;
   border:8px solid #120b08;
-  box-shadow:0 15px 35px #21120c;
+  box-shadow:0 20px 40px #21120c;
+  animation:filmIn .8s ease;
 }
 
-.film-title{
-  font-size:22px;
-  margin-bottom:15px;
+@keyframes filmIn{
+  from{
+    opacity:0;
+    transform:scale(.7) rotate(-3deg);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) rotate(0);
+  }
 }
 
 .film video{
   width:100%;
+  max-height:60vh;
   display:block;
+  background:#000;
+}
+
+.video-note{
+  margin-top:15px;
+  font-size:17px;
+  color:#f3c9a9;
 }
 
 /* CAKE */
+.cake-screen{
+  flex-direction:column;
+}
+
 .cake{
-  font-size:130px;
-  margin:30px;
-  animation:float 2s infinite;
+  font-size:150px;
+  animation:cakeFloat 1.5s infinite alternate;
 }
 
-@keyframes float{
-  50%{transform:translateY(-12px)}
+@keyframes cakeFloat{
+  to{
+    transform:translateY(-18px) scale(1.05);
+  }
 }
 
-.wish{
-  font-size:25px;
+.cake-screen h2{
+  font-size:40px;
   color:#ffe1cb;
-}
-
-/* LETTER */
-.letter{
-  max-width:800px;
-  margin:40px auto;
-  padding:40px;
-  background:#f7e3cf;
-  color:#43271c;
-  text-align:left;
-  line-height:1.8;
-  font-size:18px;
-  box-shadow:0 15px 35px #21120c;
-}
-
-.letter h3{
-  text-align:center;
-  font-size:28px;
-  margin-bottom:25px;
-  color:#633b2b;
-}
-
-.letter p{
   margin-bottom:20px;
 }
 
+.wish{
+  font-size:23px;
+  line-height:1.5;
+}
+
+/* LETTER */
+.letter-screen{
+  padding:25px;
+}
+
+.letter{
+  width:min(90vw,800px);
+  max-height:75vh;
+  overflow:auto;
+  padding:35px;
+  background:#f7e3cf;
+  color:#43271c;
+  text-align:left;
+  line-height:1.7;
+  font-size:17px;
+  box-shadow:0 20px 40px #21120c;
+  animation:letterIn 1s ease;
+}
+
+@keyframes letterIn{
+  from{
+    opacity:0;
+    transform:translateY(50px) scale(.9);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.letter h2{
+  text-align:center;
+  color:#633b2b;
+  margin-bottom:20px;
+  font-size:30px;
+}
+
+.letter p{
+  margin-bottom:18px;
+}
+
 /* FINAL */
+.final-screen{
+  flex-direction:column;
+  padding:25px;
+}
+
 .final-photo{
-  max-width:500px;
-  margin:50px auto 20px;
+  width:min(70vw,420px);
+  max-height:58vh;
+  background:#f7e3cf;
+  padding:10px;
+  box-shadow:0 20px 40px #21120c;
+  animation:finalZoom 1.2s ease;
 }
 
 .final-photo img{
   width:100%;
-  padding:10px;
-  background:#f7e3cf;
-  box-shadow:0 12px 30px #21120c;
+  height:100%;
+  max-height:54vh;
+  object-fit:contain;
+  display:block;
+}
+
+@keyframes finalZoom{
+  from{
+    transform:scale(.4);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
 }
 
 .final-text{
-  font-size:25px;
+  font-size:22px;
   font-weight:bold;
   color:#ffe1cb;
   line-height:1.5;
+  margin-top:18px;
 }
 
-.footer{
-  padding:50px 20px;
-  text-align:center;
-  background:#291710;
+.takecare{
+  margin-top:12px;
   font-size:20px;
 }
 
+/* MOBILE */
 @media(max-width:600px){
-  .cat{font-size:50px}
-  .section h2{font-size:32px}
-  .letter{padding:25px;font-size:16px}
+
+  .heart{
+    font-size:85px;
+  }
+
+  .cat{
+    font-size:48px;
+    bottom:75px;
+  }
+
+  .popper{
+    font-size:42px;
+  }
+
+  .photo-frame{
+    width:78vw;
+    height:62vh;
+  }
+
+  .photo-title{
+    font-size:27px;
+  }
+
+  .letter{
+    padding:22px;
+    font-size:15px;
+  }
+
+  .letter h2{
+    font-size:25px;
+  }
+
+  .cake{
+    font-size:110px;
+  }
+
+  .cake-screen h2{
+    font-size:30px;
+  }
+
+  .next,.back{
+    padding:10px 18px;
+    font-size:15px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- OPEN PAGE -->
-<section id="opening">
-
+<!-- OPENING -->
+<section class="screen active" id="opening">
   <div class="openbox">
 
     <div class="heart">❤️</div>
 
     <h1>Something special is waiting...</h1>
 
-    <p>Will you open it? 🥹</p>
+    <p>Will you open it? 🥹🤎</p>
 
     <button class="btn open" onclick="openCard()">OPEN 🤎</button>
 
@@ -322,228 +511,437 @@ button{font-family:inherit}
     <div id="cry">😭</div>
 
   </div>
+</section>
+
+
+<!-- BIRTHDAY INTRO -->
+<section class="screen birthday" id="birthday">
+
+  <div class="cat left">🐱🎉</div>
+  <div class="cat right">🎉🐱</div>
+
+  <div class="popper p1">🎊</div>
+  <div class="popper p2">🎉</div>
+
+  <div>
+    <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA! 🎂🤎</h1>
+    <p>My favourite Kuchupuchu 🥹🫶</p>
+  </div>
+
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
 
 </section>
 
 
-<!-- BIRTHDAY SITE -->
-<div id="main">
+<!-- PHOTO 1 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">1 / 20</div>
 
-  <!-- HERO -->
-  <section class="hero">
-
-    <div class="cat left">🐱🎉</div>
-    <div class="cat right">🎉🐱</div>
-
-    <div class="popper p1">🎊</div>
-    <div class="popper p2">🎉</div>
-
-    <div>
-      <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA! 🎂🤎</h1>
-      <p>My favourite Kuchupuchu 🥹🫶</p>
-    </div>
-
-  </section>
-
-
-  <!-- MEMORIES -->
-  <section class="section">
-
-    <h2>Our Little Memories 📸🤎</h2>
-
-    <p class="subtitle">
-      From little childhood moments to all the memories we have today... 🥹
-    </p>
-
-    <div class="gallery">
-
-      <div class="polaroid"><img src="image1.jpg"><p>Little birthday boy 🎂</p></div>
-      <div class="polaroid"><img src="image2.jpg"><p>My bhaiya 🫂</p></div>
-      <div class="polaroid"><img src="image3.jpg"><p>Always us 🤎</p></div>
-      <div class="polaroid"><img src="image4.jpg"></div>
-      <div class="polaroid"><img src="image5.jpg"></div>
-      <div class="polaroid"><img src="image6.jpg"></div>
-      <div class="polaroid"><img src="image7.jpg"></div>
-      <div class="polaroid"><img src="image8.jpg"></div>
-      <div class="polaroid"><img src="image9.jpg"></div>
-      <div class="polaroid"><img src="image10.jpg"></div>
-      <div class="polaroid"><img src="image11.jpg"></div>
-      <div class="polaroid"><img src="image12.jpg"></div>
-      <div class="polaroid"><img src="image13.jpg"></div>
-      <div class="polaroid"><img src="image14.jpg"></div>
-      <div class="polaroid"><img src="image15.jpg"></div>
-      <div class="polaroid"><img src="image16.jpg"></div>
-      <div class="polaroid"><img src="image17.jpg"></div>
-      <div class="polaroid"><img src="image18.jpg"></div>
-      <div class="polaroid"><img src="image19.jpg"></div>
-      <div class="polaroid"><img src="image 20.jpg"></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- VIDEOS -->
-  <section class="section">
-
-    <h2>Our Little Movies 🎞️</h2>
-
-    <p class="subtitle">A few more memories... 🥹🤎</p>
-
-    <div class="film">
-      <div class="film-title">🎬 Memory No. 1</div>
-      <video controls>
-        <source src="clip1.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div class="film">
-      <div class="film-title">🎬 Memory No. 2</div>
-      <video controls>
-        <source src="clip2.mp4" type="video/mp4">
-      </video>
-    </div>
-
-  </section>
-
-
-  <!-- CAKE -->
-  <section class="section">
-
-    <h2>Now Make A Wish... ✨</h2>
-
-    <div class="cake">🎂</div>
-
-    <div class="wish">
-      Close your eyes... make your biggest wish... 🌟
-    </div>
-
-    <p style="font-size:21px;margin-top:25px">
-      And now... CUT THE CAKE! 🎂🥳
-    </p>
-
-  </section>
-
-
-  <!-- LETTER -->
-  <section class="section">
-
-    <h2>A Little Letter For You 💌</h2>
-
-    <div class="letter">
-
-      <h3>Heyyy Kuchupuchu! 🥹💖</h3>
-
-      <p>
-        Wish you a super duper Happy Birthday! 🎂✨🎈
-      </p>
-
-      <p>
-        I know I annoy you a lot 😜, but that's just part of my job as your
-        sister! 💁‍♀️ On a serious note, I care for you deeply. 🥺💗
-        I never want you to face any trouble in the future, which is why I want
-        you to focus, study hard 📚✏️, and not waste your precious time hanging
-        around aimlessly in friend circles 🙅‍♀️👥.
-      </p>
-
-      <p>
-        Please understand, when I tell you not to do something, just don't do it! 🛑
-        I only say it because I want you to succeed in life 🌟🏆.
-        Right now it might feel like I'm forcing you 😅, but trust me,
-        you will understand why later 💭💖.
-      </p>
-
-      <p>
-        No matter how much we fight 🥊💥, you'll always be my brother 🫂,
-        and I'll always have your back 💕.
-        Have an amazing day! 🎉🥳
-      </p>
-
-      <p>Love you so much, 🥰</p>
-
-      <p><strong>Your Billu ✨🐾</strong></p>
-
-    </div>
-
-
-    <!-- LAST PHOTO -->
-    <div class="final-photo">
-      <img src="image 20.jpg">
-    </div>
-
-    <div class="final-text">
-      Apne mera phone kho diya...<br>
-      yeh nahi bhulungi mai kabhi 😭📱😂
-    </div>
-
-  </section>
-
-
-  <div class="footer">
-    Take care, Kuchupuchu 🤎🐾<br><br>
-    Happy Birthday once again! 🎂🥳
+  <div class="photo-frame">
+    <img src="image1.jpg" alt="Memory 1">
   </div>
 
-</div>
+  <div class="photo-caption">Little birthday boy 🎂</div>
+
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
 
 
-<!-- SONG -->
-<audio id="song">
+<!-- PHOTO 2 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">2 / 20</div>
+  <div class="photo-frame"><img src="image2.jpg" alt="Memory 2"></div>
+  <div class="photo-caption">My bhaiya 🫂</div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 3 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">3 / 20</div>
+  <div class="photo-frame"><img src="image3.jpg" alt="Memory 3"></div>
+  <div class="photo-caption">Always us 🤎</div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 4 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">4 / 20</div>
+  <div class="photo-frame"><img src="image4.jpg" alt="Memory 4"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 5 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">5 / 20</div>
+  <div class="photo-frame"><img src="image5.jpg" alt="Memory 5"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 6 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">6 / 20</div>
+  <div class="photo-frame"><img src="image6.jpg" alt="Memory 6"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 7 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">7 / 20</div>
+  <div class="photo-frame"><img src="image7.jpg" alt="Memory 7"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 8 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">8 / 20</div>
+  <div class="photo-frame"><img src="image8.jpg" alt="Memory 8"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 9 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">9 / 20</div>
+  <div class="photo-frame"><img src="image9.jpg" alt="Memory 9"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 10 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">10 / 20</div>
+  <div class="photo-frame"><img src="image10.jpg" alt="Memory 10"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 11 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">11 / 20</div>
+  <div class="photo-frame"><img src="image11.jpg" alt="Memory 11"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 12 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">12 / 20</div>
+  <div class="photo-frame"><img src="image12.jpg" alt="Memory 12"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 13 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">13 / 20</div>
+  <div class="photo-frame"><img src="image13.jpg" alt="Memory 13"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 14 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">14 / 20</div>
+  <div class="photo-frame"><img src="image14.jpg" alt="Memory 14"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 15 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">15 / 20</div>
+  <div class="photo-frame"><img src="image15.jpg" alt="Memory 15"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 16 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">16 / 20</div>
+  <div class="photo-frame"><img src="image16.jpg" alt="Memory 16"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 17 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">17 / 20</div>
+  <div class="photo-frame"><img src="image17.jpg" alt="Memory 17"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 18 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">18 / 20</div>
+  <div class="photo-frame"><img src="image18.jpg" alt="Memory 18"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 19 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">19 / 20</div>
+  <div class="photo-frame"><img src="image19.jpg" alt="Memory 19"></div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- PHOTO 20 -->
+<section class="screen photo-screen">
+  <div class="photo-title">Our Little Memories 📸🤎</div>
+  <div class="photo-count">20 / 20</div>
+  <div class="photo-frame"><img src="image 20.jpg" alt="Memory 20"></div>
+  <div class="photo-caption">One more beautiful memory 🤎</div>
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+</section>
+
+
+<!-- VIDEO 1 -->
+<section class="screen video-screen">
+
+  <div class="video-title">🎞️ Memory No. 1</div>
+
+  <div class="film">
+    <video controls playsinline>
+      <source src="clip1.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="video-note">A little memory for you 🤎</div>
+
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+
+</section>
+
+
+<!-- VIDEO 2 -->
+<section class="screen video-screen">
+
+  <div class="video-title">🎞️ Memory No. 2</div>
+
+  <div class="film">
+    <video controls playsinline>
+      <source src="clip2.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="video-note">And one more... 🥹</div>
+
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+
+</section>
+
+
+<!-- CAKE -->
+<section class="screen cake-screen">
+
+  <h2>Now Make A Wish... ✨</h2>
+
+  <div class="cake">🎂</div>
+
+  <div class="wish">
+    Close your eyes...<br>
+    Make your biggest wish... 🌟<br><br>
+    And now... CUT THE CAKE! 🎂🥳
+  </div>
+
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+
+</section>
+
+
+<!-- LETTER -->
+<section class="screen letter-screen">
+
+  <div class="letter">
+
+    <h2>Heyyy Kuchupuchu! 🥹💖</h2>
+
+    <p>Wish you a super duper Happy Birthday! 🎂✨🎈</p>
+
+    <p>
+      I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
+      On a serious note, I care for you deeply. 🥺💗
+      I never want you to face any trouble in the future, which is why I want you to
+      focus, study hard 📚✏️, and not waste your precious time hanging around aimlessly
+      in friend circles 🙅‍♀️👥.
+    </p>
+
+    <p>
+      Please understand, when I tell you not to do something, just don't do it! 🛑
+      I only say it because I want you to succeed in life 🌟🏆.
+      Right now it might feel like I'm forcing you 😅, but trust me,
+      you will understand why later 💭💖.
+    </p>
+
+    <p>
+      No matter how much we fight 🥊💥, you'll always be my brother 🫂,
+      and I'll always have your back 💕.
+      Have an amazing day! 🎉🥳
+    </p>
+
+    <p>Love you so much, 🥰</p>
+
+    <p><strong>Your Billu ✨🐾</strong></p>
+
+  </div>
+
+  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+
+</section>
+
+
+<!-- FINAL -->
+<section class="screen final-screen">
+
+  <div class="final-photo">
+    <img src="image 20.jpg" alt="Final memory">
+  </div>
+
+  <div class="final-text">
+    Apne mera phone kho diya...<br>
+    yeh nahi bhulungi mai kabhi 😭📱😂
+  </div>
+
+  <div class="takecare">
+    Byy, take care 🤎🐾
+  </div>
+
+</section>
+
+
+<!-- MUSIC -->
+<audio id="song" preload="auto">
   <source src="song.jpg.mp3" type="audio/mpeg">
 </audio>
 
 
 <script>
 
+let currentScreen = 0;
+
+const screens = document.querySelectorAll(".screen");
+
+function showScreen(index){
+
+  if(index < 0) index = 0;
+
+  if(index >= screens.length){
+    index = screens.length - 1;
+  }
+
+  screens.forEach(function(screen){
+    screen.classList.remove("active");
+  });
+
+  screens[index].classList.add("active");
+
+  currentScreen = index;
+}
+
+
+/* OPEN BUTTON */
 function openCard(){
 
-  document.getElementById("opening").style.display="none";
-  document.getElementById("main").style.display="block";
+  showScreen(1);
 
-  const song=document.getElementById("song");
+  const song = document.getElementById("song");
 
-  song.currentTime=0;
+  song.currentTime = 0;
 
   song.play().catch(function(){
-    alert("Tap anywhere once to start the birthday music 🎵");
+    console.log("Music needs another tap.");
   });
 
   startFalling();
 
-  window.scrollTo(0,0);
 }
 
 
+/* NEXT BUTTON */
+function nextScreen(){
+
+  showScreen(currentScreen + 1);
+
+}
+
+
+/* NO BUTTON */
 function showCry(){
 
-  document.getElementById("cry").style.display="block";
+  const cry = document.getElementById("cry");
+
+  cry.style.display = "block";
 
 }
 
+
+/* FALLING DECORATIONS */
+let fallingStarted = false;
 
 function startFalling(){
 
-  const emojis=[
-    "🌹","🌸","🌷","💗","🤎","✨",
-    "🎉","🎊","🥹","🫶","💕","🌹"
+  if(fallingStarted) return;
+
+  fallingStarted = true;
+
+  const emojis = [
+    "🌹",
+    "🌸",
+    "🌷",
+    "💗",
+    "🤎",
+    "✨",
+    "🎉",
+    "🎊",
+    "🫶",
+    "💕",
+    "🌹"
   ];
 
   setInterval(function(){
 
-    const item=document.createElement("div");
+    const item = document.createElement("div");
 
-    item.className="fall";
+    item.className = "fall";
 
-    item.innerText=
-      emojis[Math.floor(Math.random()*emojis.length)];
+    item.innerText =
+      emojis[Math.floor(Math.random() * emojis.length)];
 
-    item.style.left=Math.random()*100+"vw";
+    item.style.left =
+      Math.random() * 100 + "vw";
 
-    item.style.fontSize=
-      (16+Math.random()*25)+"px";
+    item.style.fontSize =
+      (16 + Math.random() * 25) + "px";
 
-    item.style.animationDuration=
-      (4+Math.random()*5)+"s";
+    item.style.animationDuration =
+      (4 + Math.random() * 5) + "s";
 
     document.body.appendChild(item);
 

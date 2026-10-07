@@ -3,953 +3,920 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Bhaiya 🤎</title>
+
+<title>Happy Birthday Bhaiya ❤️</title>
 
 <style>
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html,body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
+    width:100%;
+    height:100%;
+    overflow:hidden !important;
+    background:#3b241b;
+    font-family:Georgia,serif;
 }
 
-body{
-  font-family:Georgia,serif;
-  background:#3b241b;
-  color:#fff3e8;
-}
+/* ================= GENERAL SCREEN ================= */
 
-/* EVERY SCREEN = FULL SCREEN */
 .screen{
-  display:none;
-  position:fixed;
-  inset:0;
-  width:100vw;
-  height:100vh;
-  overflow:hidden;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:linear-gradient(135deg,#2a1710,#674333,#3b241b);
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    min-height:100vh;
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background:
+      radial-gradient(circle at center,#8b5a3c,#3b241b 75%);
+
+    color:#fff5e6;
+
+    overflow:hidden !important;
 }
 
 .screen.active{
-  display:flex;
-  animation:screenIn .7s ease;
+    display:flex;
+    animation:screenIn .7s ease;
 }
 
 @keyframes screenIn{
-  from{
-    opacity:0;
-    transform:scale(1.04);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
+    from{
+        opacity:0;
+        transform:scale(1.04);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
-/* OPENING */
-.openbox{
-  width:90%;
-  max-width:650px;
-}
+/* ================= PETALS ================= */
 
-.heart{
-  font-size:110px;
-  animation:heartbeat 1.2s infinite;
-}
-
-@keyframes heartbeat{
-  50%{transform:scale(1.18)}
-}
-
-.openbox h1{
-  font-size:clamp(28px,5vw,48px);
-  color:#ffe1cb;
-  margin:20px 0 12px;
-}
-
-.openbox p{
-  font-size:21px;
-  margin-bottom:30px;
-}
-
-.btn{
-  border:0;
-  border-radius:30px;
-  padding:15px 35px;
-  margin:7px;
-  font-size:19px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.btn:hover{
-  transform:scale(1.08);
-}
-
-.open{
-  background:#f3c9a9;
-  color:#3b241b;
-}
-
-.no{
-  background:#6b4939;
-  color:white;
-}
-
-#cry{
-  display:none;
-  font-size:100px;
-  margin-top:20px;
-  animation:shake .5s infinite;
-}
-
-@keyframes shake{
-  25%{transform:rotate(-8deg)}
-  75%{transform:rotate(8deg)}
-}
-
-/* BIRTHDAY SCREEN */
-.birthday h1{
-  font-size:clamp(40px,8vw,85px);
-  color:#ffe1cb;
-  text-shadow:0 8px 20px #1c0d08;
-  animation:zoomText 1.3s ease;
-}
-
-.birthday p{
-  font-size:24px;
-  margin-top:25px;
-  animation:fadeUp 1.5s ease;
-}
-
-@keyframes zoomText{
-  from{
-    transform:scale(.3);
-    opacity:0;
-  }
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
-}
-
-@keyframes fadeUp{
-  from{
-    transform:translateY(30px);
-    opacity:0;
-  }
-  to{
-    transform:translateY(0);
-    opacity:1;
-  }
-}
-
-/* CATS + POPPERS */
-.cat{
-  position:absolute;
-  font-size:75px;
-  bottom:70px;
-  animation:bounce 1.5s infinite alternate;
-}
-
-.left{left:5%}
-.right{right:5%}
-
-@keyframes bounce{
-  to{
-    transform:translateY(-20px) rotate(5deg);
-  }
-}
-
-.popper{
-  position:absolute;
-  font-size:60px;
-  animation:popper 1s infinite alternate;
-}
-
-.p1{left:10%;top:18%}
-.p2{right:10%;top:20%}
-
-@keyframes popper{
-  to{
-    transform:scale(1.3) rotate(12deg);
-  }
-}
-
-/* FALLING EMOJIS */
-.fall{
-  position:fixed;
-  top:-50px;
-  z-index:100;
-  pointer-events:none;
-  animation:fall linear forwards;
+.petal{
+    position:fixed;
+    top:-40px;
+    z-index:1;
+    pointer-events:none;
+    animation:fall linear infinite;
 }
 
 @keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-  }
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
 }
 
-/* NEXT BUTTON */
+/* ================= OPEN PAGE ================= */
+
+.open-title{
+    font-size:clamp(30px,7vw,60px);
+    margin-bottom:30px;
+    text-align:center;
+}
+
+.heart{
+    font-size:110px;
+    cursor:pointer;
+    animation:heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.15)}
+}
+
+.open-buttons{
+    margin-top:25px;
+    display:flex;
+    gap:20px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.open-btn{
+    padding:13px 30px;
+    border-radius:30px;
+    background:#f4d6b4;
+    color:#4a2c20;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.no-btn{
+    padding:13px 30px;
+    border-radius:30px;
+    background:#6e4432;
+    color:white;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero h1{
+    font-size:clamp(30px,7vw,75px);
+    text-align:center;
+    animation:bounceTitle 1.5s infinite;
+    z-index:3;
+}
+
+@keyframes bounceTitle{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+
+.cats{
+    font-size:80px;
+    margin-bottom:20px;
+    animation:catPop 1s ease;
+}
+
+@keyframes catPop{
+    from{
+        transform:scale(0);
+    }
+    to{
+        transform:scale(1);
+    }
+}
+
+.popper{
+    position:absolute;
+    font-size:45px;
+    animation:pop 1.5s infinite alternate;
+}
+
+.pop1{left:10%;top:30%}
+.pop2{right:10%;top:30%}
+
+@keyframes pop{
+    from{transform:rotate(-12deg) scale(1)}
+    to{transform:rotate(12deg) scale(1.2)}
+}
+
 .next{
-  position:absolute;
-  bottom:25px;
-  right:25px;
-  z-index:200;
-  background:#f3c9a9;
-  color:#3b241b;
-  border:0;
-  border-radius:30px;
-  padding:12px 24px;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 5px 15px #21120c;
+    position:absolute;
+    bottom:25px;
+    padding:12px 28px;
+    border-radius:25px;
+    background:#f4d6b4;
+    color:#4a2c20;
+    font-weight:bold;
+    font-size:16px;
+    z-index:20;
 }
 
-.back{
-  position:absolute;
-  bottom:25px;
-  left:25px;
-  z-index:200;
-  background:#6b4939;
-  color:white;
-  border:0;
-  border-radius:30px;
-  padding:12px 24px;
-  font-size:17px;
-  cursor:pointer;
-}
+/* ================= PHOTO FILM ================= */
 
-/* PHOTO SCREEN */
 .photo-screen{
-  flex-direction:column;
-  padding:35px 20px 80px;
+    background:
+      linear-gradient(rgba(45,25,18,.88),rgba(45,25,18,.88)),
+      #3b241b;
 }
 
-.photo-title{
-  font-size:32px;
-  color:#ffe1cb;
-  margin-bottom:20px;
-}
-
-.photo-count{
-  font-size:16px;
-  margin-bottom:15px;
-}
-
-.photo-frame{
-  width:min(78vw,480px);
-  height:min(68vh,500px);
-  background:#fff7ed;
-  padding:12px 12px 35px;
-  box-shadow:0 20px 45px #1b0d08;
-  transform:rotate(-2deg);
-  animation:photoIn .8s ease;
-}
-
-.photo-frame img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-@keyframes photoIn{
-  from{
-    opacity:0;
-    transform:scale(.5) rotate(-12deg);
-  }
-  to{
-    opacity:1;
-    transform:scale(1) rotate(-2deg);
-  }
-}
-
-.photo-caption{
-  margin-top:15px;
-  font-size:20px;
-  color:#ffe1cb;
-}
-
-/* VIDEO */
-.video-screen{
-  flex-direction:column;
-  padding:30px;
-}
-
-.video-title{
-  font-size:35px;
-  color:#ffe1cb;
-  margin-bottom:25px;
-}
+/* film strip */
 
 .film{
-  width:min(88vw,800px);
-  background:#1d110c;
-  padding:18px;
-  border:8px solid #120b08;
-  box-shadow:0 20px 40px #21120c;
-  animation:filmIn .8s ease;
+    position:relative;
+
+    width:min(86vw,620px);
+    height:min(76vh,620px);
+
+    padding:38px 32px;
+
+    background:#17110e;
+
+    border:8px solid #090706;
+
+    box-shadow:
+      0 0 0 3px #76513c,
+      0 25px 60px rgba(0,0,0,.55);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    animation:filmEnter .9s cubic-bezier(.2,.8,.2,1);
 }
 
-@keyframes filmIn{
-  from{
-    opacity:0;
-    transform:scale(.7) rotate(-3deg);
-  }
-  to{
-    opacity:1;
-    transform:scale(1) rotate(0);
-  }
+/* top and bottom film holes */
+
+.film::before,
+.film::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    height:24px;
+
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 12px,
+        #e8d2b8 12px 28px,
+        transparent 28px 40px
+      );
+
+    opacity:.9;
 }
 
-.film video{
-  width:100%;
-  max-height:60vh;
-  display:block;
-  background:#000;
+.film::before{
+    top:5px;
 }
 
-.video-note{
-  margin-top:15px;
-  font-size:17px;
-  color:#f3c9a9;
+.film::after{
+    bottom:5px;
 }
 
-/* CAKE */
-.cake-screen{
-  flex-direction:column;
+@keyframes filmEnter{
+
+    0%{
+        opacity:0;
+        transform:
+          translateX(100vw)
+          rotate(8deg)
+          scale(.75);
+    }
+
+    60%{
+        transform:
+          translateX(-25px)
+          rotate(-2deg)
+          scale(1.03);
+    }
+
+    100%{
+        opacity:1;
+        transform:
+          translateX(0)
+          rotate(0)
+          scale(1);
+    }
+}
+
+/* actual photo */
+
+.photo{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    background:#f3dfc8;
+
+    padding:10px;
+
+    border:4px solid #f8ead9;
+
+    box-shadow:
+      0 0 25px rgba(255,220,180,.25);
+
+    animation:
+      photoZoom 5s ease-in-out infinite alternate,
+      photoFloat 3s ease-in-out infinite;
+}
+
+@keyframes photoZoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.045);
+    }
+}
+
+@keyframes photoFloat{
+    0%,100%{
+        filter:brightness(1);
+    }
+    50%{
+        filter:brightness(1.08);
+    }
+}
+
+/* little film label */
+
+.film-label{
+    position:absolute;
+    bottom:-45px;
+    left:50%;
+    transform:translateX(-50%);
+
+    font-size:14px;
+    letter-spacing:3px;
+    color:#e7c7a8;
+}
+
+/* ================= MISSING PHOTO ================= */
+
+.missing{
+    color:#5b3728;
+    background:#f1d8bd;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    font-size:22px;
+    padding:20px;
+}
+
+/* ================= VIDEO ================= */
+
+.video-film{
+    width:min(88vw,850px);
+    height:min(68vh,520px);
+
+    background:#17110e;
+
+    border:10px solid #090706;
+
+    padding:25px;
+
+    position:relative;
+
+    box-shadow:
+      0 0 0 3px #76513c,
+      0 25px 60px rgba(0,0,0,.6);
+
+    animation:filmEnter .9s ease;
+}
+
+.video-film::before,
+.video-film::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    right:0;
+
+    height:20px;
+
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 10px,
+        #e8d2b8 10px 25px,
+        transparent 25px 35px
+      );
+}
+
+.video-film::before{top:3px}
+.video-film::after{bottom:3px}
+
+video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#080605;
+}
+
+/* ================= CAKE ================= */
+
+.cake-title{
+    font-size:clamp(30px,6vw,60px);
+    margin-bottom:20px;
 }
 
 .cake{
-  font-size:150px;
-  animation:cakeFloat 1.5s infinite alternate;
+    font-size:150px;
+    animation:cakeBounce 1.4s infinite alternate;
 }
 
-@keyframes cakeFloat{
-  to{
-    transform:translateY(-18px) scale(1.05);
-  }
-}
-
-.cake-screen h2{
-  font-size:40px;
-  color:#ffe1cb;
-  margin-bottom:20px;
+@keyframes cakeBounce{
+    from{transform:scale(1)}
+    to{transform:scale(1.08)}
 }
 
 .wish{
-  font-size:23px;
-  line-height:1.5;
+    font-size:20px;
+    margin:15px 0;
 }
 
-/* LETTER */
+/* ================= LETTER ================= */
+
 .letter-screen{
-  padding:25px;
+    padding:25px;
 }
 
 .letter{
-  width:min(90vw,800px);
-  max-height:75vh;
-  overflow:auto;
-  padding:35px;
-  background:#f7e3cf;
-  color:#43271c;
-  text-align:left;
-  line-height:1.7;
-  font-size:17px;
-  box-shadow:0 20px 40px #21120c;
-  animation:letterIn 1s ease;
+    width:min(88vw,800px);
+
+    max-height:78vh;
+
+    padding:clamp(20px,4vw,40px);
+
+    background:#f3dfc8;
+
+    color:#4b2d20;
+
+    border:8px solid #6e4432;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+    border-radius:8px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    overflow:hidden !important;
+
+    animation:letterOpen 1s ease;
 }
 
-@keyframes letterIn{
-  from{
-    opacity:0;
-    transform:translateY(50px) scale(.9);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
+@keyframes letterOpen{
+    from{
+        opacity:0;
+        transform:scale(.85) rotate(-2deg);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+    }
 }
 
 .letter h2{
-  text-align:center;
-  color:#633b2b;
-  margin-bottom:20px;
-  font-size:30px;
+    text-align:center;
+    margin-bottom:12px;
+    font-size:clamp(22px,4vw,34px);
 }
 
 .letter p{
-  margin-bottom:18px;
+    font-size:clamp(12px,1.8vw,17px);
+    line-height:1.45;
+    margin-bottom:9px;
 }
 
-/* FINAL */
-.final-screen{
-  flex-direction:column;
-  padding:25px;
+.signature{
+    text-align:right;
+    font-weight:bold;
+    margin-top:8px;
 }
+
+/* ================= FINAL ================= */
 
 .final-photo{
-  width:min(70vw,420px);
-  max-height:58vh;
-  background:#f7e3cf;
-  padding:10px;
-  box-shadow:0 20px 40px #21120c;
-  animation:finalZoom 1.2s ease;
-}
+    width:min(80vw,500px);
+    max-height:65vh;
 
-.final-photo img{
-  width:100%;
-  height:100%;
-  max-height:54vh;
-  object-fit:contain;
-  display:block;
+    object-fit:contain;
+
+    border:10px solid #f3dfc8;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+
+    animation:finalZoom 2s ease;
 }
 
 @keyframes finalZoom{
-  from{
-    transform:scale(.4);
-    opacity:0;
-  }
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
+    from{
+        transform:scale(.6) rotate(-5deg);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1) rotate(0);
+        opacity:1;
+    }
 }
 
 .final-text{
-  font-size:22px;
-  font-weight:bold;
-  color:#ffe1cb;
-  line-height:1.5;
-  margin-top:18px;
+    margin-top:20px;
+    font-size:clamp(18px,4vw,30px);
+    text-align:center;
+    max-width:800px;
 }
 
-.takecare{
-  margin-top:12px;
-  font-size:20px;
-}
+/* ================= MOBILE ================= */
 
-/* MOBILE */
 @media(max-width:600px){
 
-  .heart{
-    font-size:85px;
-  }
+    .film{
+        width:88vw;
+        height:68vh;
+        padding:30px 22px;
+    }
 
-  .cat{
-    font-size:48px;
-    bottom:75px;
-  }
+    .photo{
+        padding:6px;
+        border-width:3px;
+    }
 
-  .popper{
-    font-size:42px;
-  }
+    .cats{
+        font-size:60px;
+    }
 
-  .photo-frame{
-    width:78vw;
-    height:62vh;
-  }
+    .hero h1{
+        padding:0 20px;
+    }
 
-  .photo-title{
-    font-size:27px;
-  }
+    .letter{
+        max-height:78vh;
+        padding:18px;
+    }
 
-  .letter{
-    padding:22px;
-    font-size:15px;
-  }
+    .letter p{
+        font-size:12px;
+        line-height:1.32;
+        margin-bottom:6px;
+    }
 
-  .letter h2{
-    font-size:25px;
-  }
+    .letter h2{
+        font-size:22px;
+    }
 
-  .cake{
-    font-size:110px;
-  }
+    .cake{
+        font-size:110px;
+    }
 
-  .cake-screen h2{
-    font-size:30px;
-  }
-
-  .next,.back{
-    padding:10px 18px;
-    font-size:15px;
-  }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- OPENING -->
-<section class="screen active" id="opening">
-  <div class="openbox">
+<!-- PETALS -->
+<script>
+for(let i=0;i<25;i++){
+
+    const petal=document.createElement("div");
+
+    petal.className="petal";
+    petal.innerHTML=["🌹","🌸","💗","✨"][Math.floor(Math.random()*4)];
+
+    petal.style.left=Math.random()*100+"%";
+    petal.style.animationDuration=(4+Math.random()*6)+"s";
+    petal.style.animationDelay=Math.random()*5+"s";
+    petal.style.fontSize=(14+Math.random()*18)+"px";
+
+    document.body.appendChild(petal);
+}
+</script>
+
+
+<!-- OPEN -->
+
+<section class="screen active" id="open">
+
+    <div class="open-title">
+        A little surprise for you 🥹❤️
+    </div>
 
     <div class="heart">❤️</div>
 
-    <h1>Something special is waiting...</h1>
+    <div class="open-buttons">
 
-    <p>Will you open it? 🥹🤎</p>
+        <button class="open-btn" onclick="goTo('hero')">
+            OPEN 💌
+        </button>
 
-    <button class="btn open" onclick="openCard()">OPEN 🤎</button>
+        <button class="no-btn" onclick="noOpen()">
+            NO 😭
+        </button>
 
-    <button class="btn no" onclick="showCry()">NO 😭</button>
-
-    <div id="cry">😭</div>
-
-  </div>
-</section>
-
-
-<!-- BIRTHDAY INTRO -->
-<section class="screen birthday" id="birthday">
-
-  <div class="cat left">🐱🎉</div>
-  <div class="cat right">🎉🐱</div>
-
-  <div class="popper p1">🎊</div>
-  <div class="popper p2">🎉</div>
-
-  <div>
-    <h1>HAPPY BIRTHDAY<br>BHAIYAAAAA! 🎂🤎</h1>
-    <p>My favourite Kuchupuchu 🥹🫶</p>
-  </div>
-
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+    </div>
 
 </section>
 
 
-<!-- PHOTO 1 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">1 / 20</div>
+<!-- NO -->
 
-  <div class="photo-frame">
-    <img src="image1.jpg" alt="Memory 1">
-  </div>
+<section class="screen" id="no">
 
-  <div class="photo-caption">Little birthday boy 🎂</div>
+    <div style="font-size:130px">😭</div>
 
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
+    <h1>Really?! 😭</h1>
 
-
-<!-- PHOTO 2 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">2 / 20</div>
-  <div class="photo-frame"><img src="image2.jpg" alt="Memory 2"></div>
-  <div class="photo-caption">My bhaiya 🫂</div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 3 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">3 / 20</div>
-  <div class="photo-frame"><img src="image3.jpg" alt="Memory 3"></div>
-  <div class="photo-caption">Always us 🤎</div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 4 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">4 / 20</div>
-  <div class="photo-frame"><img src="image4.jpg" alt="Memory 4"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 5 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">5 / 20</div>
-  <div class="photo-frame"><img src="image5.jpg" alt="Memory 5"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 6 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">6 / 20</div>
-  <div class="photo-frame"><img src="image6.jpg" alt="Memory 6"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 7 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">7 / 20</div>
-  <div class="photo-frame"><img src="image7.jpg" alt="Memory 7"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 8 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">8 / 20</div>
-  <div class="photo-frame"><img src="image8.jpg" alt="Memory 8"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 9 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">9 / 20</div>
-  <div class="photo-frame"><img src="image9.jpg" alt="Memory 9"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 10 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">10 / 20</div>
-  <div class="photo-frame"><img src="image10.jpg" alt="Memory 10"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 11 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">11 / 20</div>
-  <div class="photo-frame"><img src="image11.jpg" alt="Memory 11"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 12 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">12 / 20</div>
-  <div class="photo-frame"><img src="image12.jpg" alt="Memory 12"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 13 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">13 / 20</div>
-  <div class="photo-frame"><img src="image13.jpg" alt="Memory 13"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 14 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">14 / 20</div>
-  <div class="photo-frame"><img src="image14.jpg" alt="Memory 14"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 15 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">15 / 20</div>
-  <div class="photo-frame"><img src="image15.jpg" alt="Memory 15"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 16 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">16 / 20</div>
-  <div class="photo-frame"><img src="image16.jpg" alt="Memory 16"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 17 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">17 / 20</div>
-  <div class="photo-frame"><img src="image17.jpg" alt="Memory 17"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 18 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">18 / 20</div>
-  <div class="photo-frame"><img src="image18.jpg" alt="Memory 18"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 19 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">19 / 20</div>
-  <div class="photo-frame"><img src="image19.jpg" alt="Memory 19"></div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- PHOTO 20 -->
-<section class="screen photo-screen">
-  <div class="photo-title">Our Little Memories 📸🤎</div>
-  <div class="photo-count">20 / 20</div>
-  <div class="photo-frame"><img src="image 20.jpg" alt="Memory 20"></div>
-  <div class="photo-caption">One more beautiful memory 🤎</div>
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-</section>
-
-
-<!-- VIDEO 1 -->
-<section class="screen video-screen">
-
-  <div class="video-title">🎞️ Memory No. 1</div>
-
-  <div class="film">
-    <video controls playsinline>
-      <source src="clip1.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="video-note">A little memory for you 🤎</div>
-
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+    <button class="next" onclick="goTo('open')">
+        Okay okay... 😭❤️
+    </button>
 
 </section>
 
 
-<!-- VIDEO 2 -->
-<section class="screen video-screen">
+<!-- HERO -->
 
-  <div class="video-title">🎞️ Memory No. 2</div>
+<section class="screen hero" id="hero">
 
-  <div class="film">
-    <video controls playsinline>
-      <source src="clip2.mp4" type="video/mp4">
-    </video>
-  </div>
+    <div class="cats">
+        🐱 🎉 🐱
+    </div>
 
-  <div class="video-note">And one more... 🥹</div>
+    <div class="popper pop1">🎊</div>
+    <div class="popper pop2">🎉</div>
 
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+    <h1>
+        HAPPY BIRTHDAY<br>
+        BHAIYAAAAA 🎂❤️
+    </h1>
 
-</section>
-
-
-<!-- CAKE -->
-<section class="screen cake-screen">
-
-  <h2>Now Make A Wish... ✨</h2>
-
-  <div class="cake">🎂</div>
-
-  <div class="wish">
-    Close your eyes...<br>
-    Make your biggest wish... 🌟<br><br>
-    And now... CUT THE CAKE! 🎂🥳
-  </div>
-
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
+    <button class="next" onclick="startMusic();goTo('photo1')">
+        LET'S GO 🎬
+    </button>
 
 </section>
 
 
-<!-- LETTER -->
-<section class="screen letter-screen">
+<!-- AUDIO -->
 
-  <div class="letter">
-
-    <h2>Heyyy Kuchupuchu! 🥹💖</h2>
-
-    <p>Wish you a super duper Happy Birthday! 🎂✨🎈</p>
-
-    <p>
-      I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
-      On a serious note, I care for you deeply. 🥺💗
-      I never want you to face any trouble in the future, which is why I want you to
-      focus, study hard 📚✏️, and not waste your precious time hanging around aimlessly
-      in friend circles 🙅‍♀️👥.
-    </p>
-
-    <p>
-      Please understand, when I tell you not to do something, just don't do it! 🛑
-      I only say it because I want you to succeed in life 🌟🏆.
-      Right now it might feel like I'm forcing you 😅, but trust me,
-      you will understand why later 💭💖.
-    </p>
-
-    <p>
-      No matter how much we fight 🥊💥, you'll always be my brother 🫂,
-      and I'll always have your back 💕.
-      Have an amazing day! 🎉🥳
-    </p>
-
-    <p>Love you so much, 🥰</p>
-
-    <p><strong>Your Billu ✨🐾</strong></p>
-
-  </div>
-
-  <button class="next" onclick="nextScreen()">NEXT ➜</button>
-
-</section>
-
-
-<!-- FINAL -->
-<section class="screen final-screen">
-
-  <div class="final-photo">
-    <img src="image 20.jpg" alt="Final memory">
-  </div>
-
-  <div class="final-text">
-    Apne mera phone kho diya...<br>
-    yeh nahi bhulungi mai kabhi 😭📱😂
-  </div>
-
-  <div class="takecare">
-    Byy, take care 🤎🐾
-  </div>
-
-</section>
-
-
-<!-- MUSIC -->
-<audio id="song" preload="auto">
-  <source src="song.jpg.mp3" type="audio/mpeg">
+<audio id="song" loop>
+    <source src="song.jpg.mp3" type="audio/mpeg">
 </audio>
 
 
 <script>
 
-let currentScreen = 0;
+const photos = [
+    "image1.jpg",
+    "image2.jpg",
+    "image3.jpg",
+    "image4.jpg",
+    "image5.jpg",
+    "image6.jpg",
+    "image7.jpg",
+    "image8.jpg",
+    "image9.jpg",
+    "image10.jpg",
+    "image11.jpg",
+    "image12.jpg",
+    "image13.jpg",
+    "image14.jpg",
+    "image15.jpg",
+    "image16.jpg",
+    "image17.jpg",
+    "image18.jpg",
+    "image19.jpg",
+    "image 20.jpg"
+];
 
-const screens = document.querySelectorAll(".screen");
+</script>
 
-function showScreen(index){
 
-  if(index < 0) index = 0;
+<!-- PHOTO SCREENS -->
 
-  if(index >= screens.length){
-    index = screens.length - 1;
-  }
+<script>
 
-  screens.forEach(function(screen){
-    screen.classList.remove("active");
-  });
+photos.forEach((photo,index)=>{
 
-  screens[index].classList.add("active");
+    const section=document.createElement("section");
 
-  currentScreen = index;
+    section.className="screen photo-screen";
+    section.id="photo"+(index+1);
+
+    const number=String(index+1).padStart(2,"0");
+
+    section.innerHTML=`
+
+        <div class="film">
+
+            <img
+                class="photo"
+                src="${photo}"
+                alt="Birthday memory ${number}"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            >
+
+            <div class="missing" style="display:none">
+                📸<br><br>
+                This photo is missing.<br>
+                Please upload <b>${photo}</b>
+            </div>
+
+            <div class="film-label">
+                MEMORY • ${number}
+            </div>
+
+        </div>
+
+        <button class="next"
+        onclick="goTo('${index===photos.length-1 ? "video1" : "photo"+(index+2)}')">
+            NEXT ❤️
+        </button>
+
+    `;
+
+    document.body.appendChild(section);
+
+});
+
+</script>
+
+
+<!-- VIDEO 1 -->
+
+<section class="screen" id="video1">
+
+    <div class="video-film">
+
+        <video controls playsinline>
+            <source src="clip1.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <button class="next" onclick="goTo('video2')">
+        NEXT 🎬
+    </button>
+
+</section>
+
+
+<!-- VIDEO 2 -->
+
+<section class="screen" id="video2">
+
+    <div class="video-film">
+
+        <video controls playsinline>
+            <source src="clip2.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <button class="next" onclick="goTo('cake')">
+        NEXT ❤️
+    </button>
+
+</section>
+
+
+<!-- CAKE -->
+
+<section class="screen" id="cake">
+
+    <h1 class="cake-title">
+        Make a Wish ✨
+    </h1>
+
+    <div class="cake">
+        🎂
+    </div>
+
+    <div class="wish">
+        Close your eyes & make a wish! 🥹❤️
+    </div>
+
+    <button class="next" onclick="goTo('letter')">
+        Cut the Cake 🎂
+    </button>
+
+</section>
+
+
+<!-- LETTER -->
+
+<section class="screen letter-screen" id="letter">
+
+    <div class="letter">
+
+        <h2>
+            Heyyy Kuchupuchu! 🥹💖
+        </h2>
+
+        <p>
+            Wish you a super duper Happy Birthday! 🎂✨🎈
+        </p>
+
+        <p>
+            I know I annoy you a lot 😜, but that's just part of my job as your sister! 💁‍♀️
+            On a serious note, I care for you deeply. 🥺💗
+            I never want you to face any trouble in the future, which is why I want you to focus,
+            study hard 📚✏️, and not waste your precious time hanging around aimlessly in friend circles 🙅‍♀️👥.
+        </p>
+
+        <p>
+            Please understand, when I tell you not to do something, just don't do it! 🛑
+            I only say it because I want you to succeed in life 🌟🏆.
+            Right now it might feel like I’m forcing you 😅, but trust me,
+            you will understand why later 💭💖.
+        </p>
+
+        <p>
+            No matter how much we fight 🥊💥, you’ll always be my brother 🫂,
+            and I’ll always have your back 💕.
+            Have an amazing day! 🎉🥳
+        </p>
+
+        <p>
+            Love you so much, 🥰
+        </p>
+
+        <div class="signature">
+            Your Billu ✨🐾
+        </div>
+
+    </div>
+
+    <button class="next" onclick="goTo('final')">
+        One last thing 😂
+    </button>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="screen" id="final">
+
+    <img
+        src="image 20.jpg"
+        class="final-photo"
+        alt="Final memory"
+    >
+
+    <div class="final-text">
+        Apne mera phone kho diya… yeh nahi bhulungi mai kabhi 😭📱😂
+        <br><br>
+        byy take care ❤️
+    </div>
+
+</section>
+
+
+<script>
+
+/* ================= NAVIGATION ================= */
+
+function goTo(id){
+
+    document.querySelectorAll(".screen").forEach(screen=>{
+        screen.classList.remove("active");
+    });
+
+    const target=document.getElementById(id);
+
+    if(target){
+        target.classList.add("active");
+    }
+
+    /* Restart animation every time */
+
+    const film=target?.querySelector(".film");
+
+    if(film){
+        film.style.animation="none";
+
+        void film.offsetWidth;
+
+        film.style.animation=
+        "filmEnter .9s cubic-bezier(.2,.8,.2,1)";
+    }
+
+    const video=target?.querySelector("video");
+
+    if(video){
+        video.currentTime=0;
+    }
+
 }
 
 
-/* OPEN BUTTON */
-function openCard(){
+/* ================= NO BUTTON ================= */
 
-  showScreen(1);
-
-  const song = document.getElementById("song");
-
-  song.currentTime = 0;
-
-  song.play().catch(function(){
-    console.log("Music needs another tap.");
-  });
-
-  startFalling();
-
+function noOpen(){
+    goTo("no");
 }
 
 
-/* NEXT BUTTON */
-function nextScreen(){
+/* ================= MUSIC ================= */
 
-  showScreen(currentScreen + 1);
+function startMusic(){
 
-}
+    const song=document.getElementById("song");
 
+    song.volume=.7;
 
-/* NO BUTTON */
-function showCry(){
-
-  const cry = document.getElementById("cry");
-
-  cry.style.display = "block";
-
-}
-
-
-/* FALLING DECORATIONS */
-let fallingStarted = false;
-
-function startFalling(){
-
-  if(fallingStarted) return;
-
-  fallingStarted = true;
-
-  const emojis = [
-    "🌹",
-    "🌸",
-    "🌷",
-    "💗",
-    "🤎",
-    "✨",
-    "🎉",
-    "🎊",
-    "🫶",
-    "💕",
-    "🌹"
-  ];
-
-  setInterval(function(){
-
-    const item = document.createElement("div");
-
-    item.className = "fall";
-
-    item.innerText =
-      emojis[Math.floor(Math.random() * emojis.length)];
-
-    item.style.left =
-      Math.random() * 100 + "vw";
-
-    item.style.fontSize =
-      (16 + Math.random() * 25) + "px";
-
-    item.style.animationDuration =
-      (4 + Math.random() * 5) + "s";
-
-    document.body.appendChild(item);
-
-    setTimeout(function(){
-      item.remove();
-    },9000);
-
-  },220);
+    song.play().catch(()=>{});
 
 }
 
